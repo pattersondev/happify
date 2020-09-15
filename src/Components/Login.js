@@ -1,0 +1,38 @@
+import React from "react";
+import "./Login.css";
+import spotifylogo from "../Assets/spotifylogo.svg";
+import { loginUrl } from "../spotify";
+
+import Button from "@material-ui/core/Button";
+import { withStyles } from "@material-ui/core/styles";
+
+function Login() {
+  // Styling of the spotify button
+  const IconButton = withStyles(() => ({
+    root: {
+      color: "white",
+      backgroundColor: "#1db954",
+      transition: "transform .2s",
+      padding: 16,
+      borderRadius: 30,
+      cursor: "pointer",
+      fontWeight: "bold",
+      "&:hover": {
+        backgroundColor: "#4ac776",
+        transform: "scale(1.1)",
+      },
+    },
+  }))(Button);
+
+  return (
+    <div className="login">
+      <h1>Check Your Top Genres</h1>
+      <IconButton href={loginUrl}>
+        <img alt="edit" src={spotifylogo} style={{ height: 20, width: 30 }} />
+        Login with Spotify
+      </IconButton>
+    </div>
+  );
+}
+
+export default Login;
