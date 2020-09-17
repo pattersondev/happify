@@ -67,13 +67,6 @@ function Chart(props) {
     chart();
   }, []);
 
-  const styles = {
-    display: "grid",
-    placeItems: "center",
-    position: "relative",
-    overflow: "auto",
-    height: "80vh",
-  };
   return (
     <div className="piechart">
       <Pie

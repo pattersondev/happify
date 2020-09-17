@@ -1,8 +1,10 @@
 .piechart {
-  border-style: solid;
-  border-color: red;
-  position: relative;
-  height: 80vh;
-  width: 80vw;
-  overflow: auto;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 60vh;
+  width: 60vw;
+  min-width: 300px;
 }
