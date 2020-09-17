@@ -1,6 +1,8 @@
 .main {
   color: white;
   text-align: center;
+  display: grid;
+  place-items: center;
 }
 
 .main > h1 {
@@ -12,12 +14,12 @@
 }
 
 .chart {
-  margin: auto;
-  width: 100%;
+  width: auto;
   text-align: left;
   margin-top: 2rem;
   max-width: 600px;
-  animation: 1.3s ease-out 0s 1 slidein;
+  min-width: 600px;
+  /* animation: 1.3s ease-out 0s 1 slidein; */
 }
 
 @keyframes slidein {

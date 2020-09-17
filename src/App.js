@@ -5,6 +5,7 @@ import { getResponseToken } from "./spotify";
 import SpotifyWebApi from "spotify-web-api-js";
 import Stats from "./Components/Stats";
 import { useDataLayerValue } from "./DataLayer";
+import Placeholder from "./Components/Placeholder";
 
 const spotify = new SpotifyWebApi();
 
@@ -45,10 +46,17 @@ function App() {
   return (
     <div className="App">
       {/* check if I have a token and render the view accordingly */}
-      {token ? <Stats spotify={spotify} /> : <Login />}
+      <Placeholder />
+
+      {/* to make dinamically again uncomment */}
+      {/* {token ? (
+        <Stats spotify={spotify} />
+      ) : (
+        <Login />
+      )}
       <div className="footer">
         <p>Made by Renier Cuervo &copy;</p>
-      </div>
+      </div> */}
     </div>
   );
 }

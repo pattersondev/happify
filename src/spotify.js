@@ -1,5 +1,6 @@
 // here is all the spotify logic
 const endpoint = "https://accounts.spotify.com/authorize";
+// const redirectUri = "https://spotify-chart.web.app/";
 const redirectUri = "http://localhost:3000/";
 const clientId = "f2b894fcb4124520b5f217d79c5ac489";
 const scopes = ["user-top-read"];
@@ -17,4 +18,4 @@ export const getResponseToken = () =>
 // url for spotify
 export const loginUrl = `${endpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes.join(
   "%20"
-)}&response_type=token&show_dialog=true`;
+)}&response_type=token&show_dialog=false`;
