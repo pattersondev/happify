@@ -1,10 +1,13 @@
 import React from "react";
-import Chart from "./Chart";
+import NewChart from "./Chart";
+import { useDataLayerValue } from "../DataLayer";
 
 function Placeholder() {
+  const [{ genres }] = useDataLayerValue();
+  console.log(genres);
   return (
     <div className="container">
-      <Chart />
+      <NewChart />
       {/* <h1>I'm a placeholder</h1> */}
       <div className="chart">
         {/* <Chart genres={genres} values={values} /> */}

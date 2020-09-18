@@ -28,8 +28,7 @@ function Stats() {
   // Separate the top 10 genres and counts to pass to the PieChart component
   let pieGenres = sortedGenres.map((e) => e[0]).slice(0, 9);
   let pieValues = sortedGenres.map((e) => e[1]).slice(0, 9);
-  console.log(pieGenres);
-  console.log(pieValues);
+
   return (
     <div className="main">
       <h1>Hello there! {user?.display_name}</h1>

@@ -3,6 +3,7 @@ export const initialState = {
   user: null,
   artists: [],
   token: null,
+  genres: null,
 };
 
 const reducer = (state, action) => {
@@ -21,6 +22,11 @@ const reducer = (state, action) => {
       return {
         ...state,
         artists: action.artists,
+      };
+    case "SET_GENRES":
+      return {
+        ...state,
+        genres: action.genres,
       };
     default:
       return state;

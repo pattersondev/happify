@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Pie } from "react-chartjs-2";
 import "./Chart.css";
-function Chart(props) {
+import "chartjs-plugin-labels";
+
+function NewChart(props) {
   // const { values, genres } = props;
 
   // const options = {
@@ -58,6 +60,7 @@ function Chart(props) {
             "#370617",
             "#03071e",
           ],
+          borderWidth: 0.5,
         },
       ],
     });
@@ -67,22 +70,45 @@ function Chart(props) {
     chart();
   }, []);
 
+  const chartOptions = {
+    plugins: {
+      labels: {
+        position: "border",
+        render: "percentage",
+        fontColor: "white",
+        fontSize: 15,
+      },
+    },
+    responsive: true,
+    maintainAspectRatio: false,
+    legend: {
+      labels: {
+        fontColor: "white",
+        usePointStyle: true,
+        boxWidth: 15,
+        fontSize: 18,
+        fontFamily: "Montserrat",
+        padding: 10,
+      },
+      position: "right",
+      align: "left",
+    },
+  };
+
+  (() => {
+    window.innerWidth < 800
+      ? (chartOptions.legend.position = "bottom")
+      : (chartOptions.legend.position = "right");
+  })();
+  //   Chart.Legend.prototype.afterFit = function() {
+  //     this.width = this.height + 50;
+  // };
+
   return (
     <div className="piechart">
-      <Pie
-        data={chartData}
-        options={{
-          responsive: true,
-          maintainAspectRatio: false,
-        }}
-      />
-
-      {/* <Pie
-        data={options.chartData}
-        options={{ responsive: true, maintainAspectRatio: false }}
-      /> */}
+      <Pie data={chartData} options={chartOptions} />
     </div>
   );
 }
 
-export default Chart;
+export default NewChart;
