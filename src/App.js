@@ -18,11 +18,6 @@ function App() {
     window.location.hash = "";
     const _token = token.access_token;
 
-    dispatch({
-      type: "SET_GENRES",
-      genres: "hola",
-    });
-
     if (_token) {
       dispatch({
         type: "SET_TOKEN",
@@ -45,7 +40,7 @@ function App() {
           artists,
         });
       });
-
+      // NEW FUNCTION that pushes genres and values for the chart
       spotify.getMyTopArtists({ limit: 100 }).then((artists) => {
         let artistGenres = artists?.items
           ?.map((artist) => artist.genres.map((genre) => genre))
@@ -66,11 +61,15 @@ function App() {
 
         // Separate the top 10 genres and counts to pass to the PieChart component
         let genres = sortedGenres.map((e) => e[0]).slice(0, 9);
-        let pieValues = sortedGenres.map((e) => e[1]).slice(0, 9);
+        let values = sortedGenres.map((e) => e[1]).slice(0, 9);
 
         dispatch({
           type: "SET_GENRES",
-          genres: "hola",
+          genres,
+        });
+        dispatch({
+          type: "SET_VALUES",
+          values,
         });
       });
     }
@@ -82,14 +81,10 @@ function App() {
       <Placeholder />
 
       {/* to make dinamically again uncomment */}
-      {/* {token ? (
-        <Stats spotify={spotify} />
-      ) : (
-        <Login />
-      )}
+      {token ? <Stats spotify={spotify} /> : <Login />}
       <div className="footer">
         <p>Made by Renier Cuervo &copy;</p>
-      </div> */}
+      </div>
     </div>
   );
 }

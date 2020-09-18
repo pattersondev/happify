@@ -6,7 +6,7 @@ import Chart from "./Chart";
 
 function Stats() {
   // Pull the artists and user from the data layer
-  const [{ artists, user }] = useDataLayerValue();
+  const [{ artists, user, genres, values }] = useDataLayerValue();
 
   // Create an objet with all the genres the user has with the name as a key and a number
   // representing how many times it found that genre
@@ -28,7 +28,8 @@ function Stats() {
   // Separate the top 10 genres and counts to pass to the PieChart component
   let pieGenres = sortedGenres.map((e) => e[0]).slice(0, 9);
   let pieValues = sortedGenres.map((e) => e[1]).slice(0, 9);
-
+  console.log("genres :>> ", genres);
+  console.log("values :>> ", values);
   return (
     <div className="main">
       <h1>Hello there! {user?.display_name}</h1>

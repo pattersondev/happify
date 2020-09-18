@@ -4,6 +4,7 @@ export const initialState = {
   artists: [],
   token: null,
   genres: null,
+  values: null,
 };
 
 const reducer = (state, action) => {
@@ -27,6 +28,11 @@ const reducer = (state, action) => {
       return {
         ...state,
         genres: action.genres,
+      };
+    case "SET_VALUES":
+      return {
+        ...state,
+        values: action.values,
       };
     default:
       return state;
