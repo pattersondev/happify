@@ -2,12 +2,14 @@ import React, { useState, useEffect } from "react";
 import { Pie } from "react-chartjs-2";
 import "./Chart.css";
 import "chartjs-plugin-labels";
+import { useDataLayerValue } from "../DataLayer";
 
 function NewChart(props) {
-  // const { values, genres } = props;
+  const [chartData, setChartData] = useState({});
+  const [{ genres, values, user }] = useDataLayerValue();
 
-  // const options = {
-  //   chartData: {
+  // const chart = () => {
+  //   setChartData({
   //     labels: genres,
   //     datasets: [
   //       {
@@ -25,50 +27,15 @@ function NewChart(props) {
   //           "#370617",
   //           "#03071e",
   //         ],
+  //         borderWidth: 0.5,
   //       },
   //     ],
-  //   },
+  //   });
   // };
-  const [chartData, setChartData] = useState({});
 
-  const chart = () => {
-    setChartData({
-      labels: [
-        "djent",
-        "melodic metalcore",
-        "progressive metal",
-        "deathcore",
-        "metal",
-        "instrumental rock",
-        "death metal",
-        "progressive jazz fusion",
-        "melodic death metal",
-      ],
-      datasets: [
-        {
-          label: "Genres",
-          data: [25, 12, 9, 8, 8, 7, 7, 6, 6],
-          backgroundColor: [
-            "#ffba08",
-            "#faa307",
-            "#f48c06",
-            "#e85d04",
-            "#dc2f02",
-            "#d00000",
-            "#9d0208",
-            "#6a040f",
-            "#370617",
-            "#03071e",
-          ],
-          borderWidth: 0.5,
-        },
-      ],
-    });
-  };
-
-  useEffect(() => {
-    chart();
-  }, []);
+  // useEffect(() => {
+  //   chart();
+  // }, []);
 
   const chartOptions = {
     plugins: {
@@ -104,9 +71,37 @@ function NewChart(props) {
   //     this.width = this.height + 50;
   // };
 
+  const myData = {
+    labels: genres,
+    datasets: [
+      {
+        label: "Genres",
+        data: values,
+        backgroundColor: [
+          "#ffba08",
+          "#faa307",
+          "#f48c06",
+          "#e85d04",
+          "#dc2f02",
+          "#d00000",
+          "#9d0208",
+          "#6a040f",
+          "#370617",
+          "#03071e",
+        ],
+        borderWidth: 0.5,
+      },
+    ],
+  };
+
   return (
-    <div className="piechart">
-      <Pie data={chartData} options={chartOptions} />
+    <div className="main">
+      <h1>Hello there! {user?.display_name}</h1>
+      <h3>Here's a chart of your most listened genres</h3>
+
+      <div className="piechart">
+        <Pie data={myData} options={chartOptions} />
+      </div>
     </div>
   );
 }

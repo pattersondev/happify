@@ -3,9 +3,10 @@ import "./App.css";
 import Login from "./Components/Login";
 import { getResponseToken } from "./spotify";
 import SpotifyWebApi from "spotify-web-api-js";
-import Stats from "./Components/Stats";
+// import Stats from "./Components/Stats";
 import { useDataLayerValue } from "./DataLayer";
 import Placeholder from "./Components/Placeholder";
+import NewChart from "./Components/Chart";
 
 const spotify = new SpotifyWebApi();
 
@@ -60,8 +61,8 @@ function App() {
         );
 
         // Separate the top 10 genres and counts to pass to the PieChart component
-        let genres = sortedGenres.map((e) => e[0]).slice(0, 9);
-        let values = sortedGenres.map((e) => e[1]).slice(0, 9);
+        let genres = sortedGenres.map((e) => e[0]).slice(0, 10);
+        let values = sortedGenres.map((e) => e[1]).slice(0, 10);
 
         dispatch({
           type: "SET_GENRES",
@@ -78,10 +79,13 @@ function App() {
   return (
     <div className="App">
       {/* check if I have a token and render the view accordingly */}
-      <Placeholder />
 
       {/* to make dinamically again uncomment */}
-      {token ? <Stats spotify={spotify} /> : <Login />}
+      {/* {token ? <Stats spotify={spotify} /> : <Login />}
+      <div className="footer">
+        <p>Made by Renier Cuervo &copy;</p>
+      </div> */}
+      {token ? <NewChart /> : <Login />}
       <div className="footer">
         <p>Made by Renier Cuervo &copy;</p>
       </div>
