@@ -1,42 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Pie } from "react-chartjs-2";
 import "./Chart.css";
 import "chartjs-plugin-labels";
 import { useDataLayerValue } from "../DataLayer";
 
-function NewChart(props) {
-  const [chartData, setChartData] = useState({});
+function NewChart() {
+  // gets the data from datalayer
   const [{ genres, values, user }] = useDataLayerValue();
-
-  // const chart = () => {
-  //   setChartData({
-  //     labels: genres,
-  //     datasets: [
-  //       {
-  //         label: "Genres",
-  //         data: values,
-  //         backgroundColor: [
-  //           "#ffba08",
-  //           "#faa307",
-  //           "#f48c06",
-  //           "#e85d04",
-  //           "#dc2f02",
-  //           "#d00000",
-  //           "#9d0208",
-  //           "#6a040f",
-  //           "#370617",
-  //           "#03071e",
-  //         ],
-  //         borderWidth: 0.5,
-  //       },
-  //     ],
-  //   });
-  // };
-
-  // useEffect(() => {
-  //   chart();
-  // }, []);
-
+  // all the options for chartjs
   const chartOptions = {
     plugins: {
       labels: {
@@ -61,16 +32,13 @@ function NewChart(props) {
       align: "left",
     },
   };
-
+  // function to make chart legend responsive
   (() => {
     window.innerWidth < 800
       ? (chartOptions.legend.position = "bottom")
       : (chartOptions.legend.position = "right");
   })();
-  //   Chart.Legend.prototype.afterFit = function() {
-  //     this.width = this.height + 50;
-  // };
-
+  // input of the data from datalayer to the graph
   const myData = {
     labels: genres,
     datasets: [

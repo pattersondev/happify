@@ -3,9 +3,7 @@ import "./App.css";
 import Login from "./Components/Login";
 import { getResponseToken } from "./spotify";
 import SpotifyWebApi from "spotify-web-api-js";
-// import Stats from "./Components/Stats";
 import { useDataLayerValue } from "./DataLayer";
-import Placeholder from "./Components/Placeholder";
 import NewChart from "./Components/Chart";
 
 const spotify = new SpotifyWebApi();
@@ -41,6 +39,7 @@ function App() {
           artists,
         });
       });
+
       // NEW FUNCTION that pushes genres and values for the chart
       spotify.getMyTopArtists({ limit: 100 }).then((artists) => {
         let artistGenres = artists?.items
@@ -78,13 +77,6 @@ function App() {
 
   return (
     <div className="App">
-      {/* check if I have a token and render the view accordingly */}
-
-      {/* to make dinamically again uncomment */}
-      {/* {token ? <Stats spotify={spotify} /> : <Login />}
-      <div className="footer">
-        <p>Made by Renier Cuervo &copy;</p>
-      </div> */}
       {token ? <NewChart /> : <Login />}
       <div className="footer">
         <p>Made by Renier Cuervo &copy;</p>

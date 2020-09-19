@@ -7,7 +7,7 @@ import Button from "@material-ui/core/Button";
 import { withStyles } from "@material-ui/core/styles";
 
 function Login() {
-  // Styling of the spotify button
+  // Styling for the spotify button
   const IconButton = withStyles(() => ({
     root: {
       color: "white",
