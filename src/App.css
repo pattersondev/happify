@@ -8,3 +8,8 @@
   padding: 5px;
   font-size: 12px;
 }
+
+.footer > a {
+  color: white;
+  text-decoration: none;
+}

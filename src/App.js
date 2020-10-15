@@ -77,9 +77,11 @@ function App() {
 
   return (
     <div className="App">
+      Button
       {token ? <NewChart /> : <Login />}
       <div className="footer">
-        <p>Made by Renier Cuervo &copy;</p>
+      <a href="https://github.com/RenierC" target='_blank'> Made by Renier Cuervo</a>
+      
       </div>
     </div>
   );

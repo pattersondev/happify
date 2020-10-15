@@ -18,4 +18,4 @@ export const getResponseToken = () =>
 // url for spotify
 export const loginUrl = `${endpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes.join(
   "%20"
-)}&response_type=token&show_dialog=false`;
+)}&response_type=token&show_dialog=true`;

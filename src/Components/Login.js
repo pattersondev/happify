@@ -23,12 +23,12 @@ function Login() {
       },
     },
   }))(Button);
-
+  // style={{ height: 20, width: 30 }}
   return (
     <div className="login">
       <h1>Check Your Top Genres</h1>
       <IconButton href={loginUrl}>
-        <img alt="edit" src={spotifylogo} style={{ height: 20, width: 30 }} />
+        <img alt="edit" src={spotifylogo} />
         Login with Spotify
       </IconButton>
     </div>

@@ -66,7 +66,7 @@ function NewChart() {
     <div className="main">
       <h1>Hello there! {user?.display_name}</h1>
       <h3>Here's a chart of your most listened genres</h3>
-
+    
       <div className="piechart">
         <Pie data={myData} options={chartOptions} />
       </div>
