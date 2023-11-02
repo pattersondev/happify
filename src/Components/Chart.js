@@ -7,6 +7,8 @@ import { useDataLayerValue } from "../DataLayer";
 function NewChart() {
   // gets the data from datalayer
   const [{ genres, values, user }] = useDataLayerValue();
+
+  console.log(user);
   // all the options for chartjs
   const chartOptions = {
     plugins: {
@@ -66,7 +68,7 @@ function NewChart() {
     <div className="main">
       <h1>Hello there! {user?.display_name}</h1>
       <h3>Here's a chart of your most listened genres</h3>
-    
+
       <div className="piechart">
         <Pie data={myData} options={chartOptions} />
       </div>

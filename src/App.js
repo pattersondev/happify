@@ -33,7 +33,8 @@ function App() {
       );
 
       // get the top artists
-      spotify.getMyTopArtists({ limit: 100 }).then((artists) => {
+      spotify.getMyTopArtists({ limit: 1, time_range: 'short_term' }).then((artists) => {
+        console.log(artists);
         dispatch({
           type: "SET_ARTISTS",
           artists,
@@ -77,11 +78,10 @@ function App() {
 
   return (
     <div className="App">
-      Button
       {token ? <NewChart /> : <Login />}
       <div className="footer">
-        <a href="https://github.com/pattersondev" target='_blank'> Made by Jack Cameron and Sam Patterson</a>
-
+        <a href="https://instagram.com/sam.patt" style={{ color: "black" }} target='_blank'> Made by Sam Patterson</a>
+        <a href="https://instagram.com/jackcameron02" style={{ color: "black" }} target='_blank'> and Jack Cameron</a>
       </div>
     </div>
   );
