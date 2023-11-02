@@ -80,8 +80,8 @@ function App() {
       Button
       {token ? <NewChart /> : <Login />}
       <div className="footer">
-      <a href="https://github.com/RenierC" target='_blank'> Made by Renier Cuervo</a>
-      
+        <a href="https://github.com/pattersondev" target='_blank'> Made by Jack Cameron and Sam Patterson</a>
+
       </div>
     </div>
   );

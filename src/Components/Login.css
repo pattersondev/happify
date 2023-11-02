@@ -9,7 +9,7 @@ body {
   height: 40vh;
 }
 
-.login > h1 {
+.login>h1 {
   color: white;
   text-align: center;
   animation: 1.3s ease-out 0s 1 coolSlide;
@@ -19,9 +19,11 @@ body {
   0% {
     transform: translateX(-100%);
   }
+
   50% {
     transform: translateX(15%);
   }
+
   100% {
     transform: translateX(0);
   }

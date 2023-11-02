@@ -1,8 +1,9 @@
 // here is all the spotify logic
 const endpoint = "https://accounts.spotify.com/authorize";
-const redirectUri = "https://spotify-chart.web.app/";
+const redirectUri = "http://localhost:3000/spotify/callback";
+
 // const redirectUri = "http://localhost:3000/";
-const clientId = "f2b894fcb4124520b5f217d79c5ac489";
+const clientId = "64f5cbd4819d40b4b848ed268b7a8957";
 const scopes = ["user-top-read"];
 // gets the hash from the url because spotify gives you the token as a url response
 export const getResponseToken = () =>

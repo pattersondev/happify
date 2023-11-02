@@ -1,6 +1,6 @@
 import React from "react";
 import "./Login.css";
-import spotifylogo from "../Assets/spotifylogo.svg";
+import smileify from "../Assets/smileify.svg";
 import { loginUrl } from "../spotify";
 
 import Button from "@material-ui/core/Button";
@@ -26,9 +26,9 @@ function Login() {
   // style={{ height: 20, width: 30 }}
   return (
     <div className="login">
-      <h1>Check Your Top Genres</h1>
+      <h1></h1>
       <IconButton href={loginUrl}>
-        <img alt="edit" src={spotifylogo} />
+        <img alt="edit" src={smileify} />
         Login with Spotify
       </IconButton>
     </div>
