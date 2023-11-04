@@ -88,7 +88,7 @@ function Happify() {
                   {artistString}
                 </textPath>
               </text>
-              <path id="monthCurve" d="M5 105 Q100 15 200 80" fill="transparent" />
+              <path id="monthCurve" d="M5 107 Q100 10 215 87" fill="transparent" />
               <text letterSpacing="2.4" fontSize={calculateFontSize(monthString)} fill="#282725" fontFamily="Inter Tight">
                 <textPath href="#monthCurve" startOffset={calculateOffset(monthString)}>
                   {monthString || 'LOADING'}
