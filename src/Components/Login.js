@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import "./Login.css";
 import { loginUrl } from "../spotify";
 import Button from "@material-ui/core/Button";
@@ -24,7 +24,7 @@ function Login() {
   const textRef = useRef(null); // Reference to the textPath element
 
   const updateText = () => {
-    const svg = svgRef.current;
+    //const svg = svgRef.current;
     const textPath = textRef.current;
 
     // Calculate the new startOffset based on text length

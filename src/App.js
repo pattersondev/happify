@@ -34,14 +34,13 @@ function App() {
 
       // get the top artists
       spotify.getMyTopArtists({ limit: 1, time_range: 'short_term' }).then((artists) => {
-        console.log(artists);
         dispatch({
           type: "SET_ARTISTS",
           artists,
         });
       });
     }
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="App">

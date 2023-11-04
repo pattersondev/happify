@@ -1,11 +1,10 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import "./Login.css";
 import { useDataLayerValue } from "../DataLayer";
 
 function Happify() {
   // Styling for the spotify button
   const [{ artists }] = useDataLayerValue();
-  const [loading, setLoading] = useState(true);
 
   const svgRef = useRef(null); // Reference to the SVG element
   const textRef = useRef(null); // Reference to the textPath element
@@ -15,7 +14,6 @@ function Happify() {
     const svg = svgRef.current;
     const textPath = textRef.current;
 
-    console.log(svg);
     const textLength = textPath.textContent.length;
     const maxTextLength = 8;
     const baseStartOffset = 50;
@@ -35,23 +33,9 @@ function Happify() {
 
     // Update the font size
     textPath.setAttribute("font-size", fontSize);
-
-    //svg.setAttribute("width", 2 * (84 + textLength * 30)); // Adjust as needed
-    // Calculate the new startOffset based on text length
-
   };
 
   useEffect(() => {
-    // if (artists.length < 1) {
-    //   console.log('HELLO')
-    //   setLoading(true);
-    // } else {
-
-    //   updateText(); // Call the updateText function after the component mounts
-    //   setLoading(false);
-
-    // }
-
     updateText(); // Call the updateText function after the component mounts
   }, [artists]);
 
