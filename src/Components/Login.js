@@ -16,7 +16,6 @@ function Login() {
       "&:hover": {
         transform: "scale(1.1)",
       },
-      position: "absolute",
     },
   }))(Button);
 
