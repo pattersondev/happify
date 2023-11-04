@@ -1,8 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./Login.css";
-import smileifylogin from "../Assets/smileifylogin.svg";
 import { loginUrl } from "../spotify";
-
 import Button from "@material-ui/core/Button";
 import { withStyles } from "@material-ui/core/styles";
 
@@ -11,7 +9,6 @@ function Login() {
   const IconButton = withStyles(() => ({
     root: {
       color: "white",
-      //backgroundColor: "#1db954",
       transition: "transform .2s",
       borderRadius: 30,
       cursor: "pointer",
