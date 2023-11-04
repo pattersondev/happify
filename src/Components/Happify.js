@@ -58,13 +58,13 @@ function Happify() {
                 letterSpacing="2.4"
               >
                 <textPath href="#smilePath" startOffset="50%" ref={textRef}>
-                  {artists?.items?.[0]?.name || 'Default'}
+                  {artists?.items?.[0]?.name.toUpperCase() || 'LOADING'}
                 </textPath>
               </text>
               <path id="curve" d="M20 210 Q100 280 180 240" fill="transparent" />
               <text letterSpacing="2.4">
-                <textPath href="#curve" startOffset="35%">
-                  For {user?.display_name || 'Default'}
+                <textPath href="#curve" startOffset="30%">
+                  FOR {user?.display_name.toUpperCase() || 'LOADING'}
                 </textPath>
               </text>
             </svg>
