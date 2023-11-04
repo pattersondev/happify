@@ -12,8 +12,15 @@ function Happify() {
   let monthString = new Date().toLocaleString('default', { month: 'long' }).toUpperCase();
   monthString += ' TOP ARTIST';
 
+  let artistString = artists?.items?.[0]?.name.toLowerCase() || 'LOADING';
+  if (artistString === 'DREW') {
+    artistString = 'COPYWRITE';
+  }
+
+  const userString = user?.display_name?.toUpperCase() || 'LOADING';
+
   const calculateFontSize = (monthString) => {
-    if (monthString.length > 10) {
+    if (monthString.length >= 10) {
       return '10';
     } else if (monthString.length > 5) {
       return '12';
@@ -60,7 +67,7 @@ function Happify() {
   return (
     <div>
       <div className="login">
-        <svg xmlns="http://www.w3.org/2000/svg" width="240" height="350" version="1.1" ref={svgRef} style={{ marginTop: '50px' }}>
+        <svg xmlns="http://www.w3.org/2000/svg" width="240" height="350" version="1.1" ref={svgRef}>
           <circle cx="120" cy="170" r="112" fill="#fac206" stroke="black" strokeWidth="4" />
           <ellipse cx="90" cy="134" rx="12" ry="30" fill="black" />
           <ellipse cx="150" cy="134" rx="12" ry="30" fill="black" />
@@ -71,22 +78,22 @@ function Happify() {
             fontFamily="Inter Tight"
             fill="black"
             textAnchor="middle"
-            letterSpacing="2.4"
+            letterSpacing="2.8"
           >
             <textPath href="#smilePath" startOffset="50%" ref={textRef}>
-              {artists?.items?.[0]?.name.toUpperCase() || 'LOADING'}
+              {artistString}
             </textPath>
           </text>
-          <path id="monthCurve" d="M5 100 Q100 15 200 80" fill="transparent" />
+          <path id="monthCurve" d="M5 105 Q100 15 200 80" fill="transparent" />
           <text letterSpacing="2.4" fontSize={calculateFontSize(monthString)}>
             <textPath href="#monthCurve" startOffset={calculateOffset(monthString)}>
               {monthString || 'LOADING'}
             </textPath>
           </text>
-          <path id="curve" d="M20 260 Q100 330 180 290" fill="transparent" />
-          <text letterSpacing="2.4">
-            <textPath href="#curve" startOffset="30%">
-              FOR {user?.display_name.toUpperCase() || 'LOADING'}
+          <path id="curve" d="M3 240 Q100 340 200 270" fill="transparent" />
+          <text letterSpacing="2.2" fontSize={calculateFontSize(userString)}>
+            <textPath href="#curve" startOffset={calculateOffset(userString)}>
+              FOR {userString}
             </textPath>
           </text>
         </svg>
