@@ -1,6 +1,6 @@
 // here is all the spotify logic
 const endpoint = "https://accounts.spotify.com/authorize";
-const redirectUri = "http://localhost:3000/spotify/callback";
+const redirectUri = "https://roaring-kashata-575a3b.netlify.app/callback";
 
 // const redirectUri = "http://localhost:3000/";
 const clientId = "64f5cbd4819d40b4b848ed268b7a8957";
