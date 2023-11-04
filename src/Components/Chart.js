@@ -66,7 +66,7 @@ function NewChart() {
 
   return (
     <div className="main">
-      <h1>Hello there! {user?.display_name}</h1>
+      <h1 style={{ color: "black" }}>Hello there! {user?.display_name}</h1>
       <h3>Here's a chart of your most listened genres</h3>
 
       <div className="piechart">

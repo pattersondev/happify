@@ -78,6 +78,9 @@ function App() {
 
   return (
     <div className="App">
+      <div>
+        Header Holder
+      </div>
       {token ? <NewChart /> : <Login />}
       <div className="footer">
         <a href="https://instagram.com/sam.patt" style={{ color: "black" }} target='_blank'> Made by Sam Patterson</a>
