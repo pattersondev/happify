@@ -6,6 +6,7 @@ function Happify() {
   // Styling for the spotify button
   const [{ artists, user }] = useDataLayerValue();
 
+
   const svgRef = useRef(null); // Reference to the SVG element
   const textRef = useRef(null); // Reference to the textPath element
 
@@ -17,7 +18,7 @@ function Happify() {
     artistString = 'COPYWRITE';
   }
 
-  const userString = user?.display_name?.toUpperCase() || 'LOADING';
+  const userString = user?.display_name?.split(' ')[0].toUpperCase() || 'LOADING';
 
   const calculateFontSize = (monthString) => {
     if (monthString.length >= 10) {
