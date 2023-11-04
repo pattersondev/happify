@@ -4,7 +4,7 @@ import { useDataLayerValue } from "../DataLayer";
 
 function Happify() {
   // Styling for the spotify button
-  const [{ artists }] = useDataLayerValue();
+  const [{ artists, user }] = useDataLayerValue();
 
   const svgRef = useRef(null); // Reference to the SVG element
   const textRef = useRef(null); // Reference to the textPath element
@@ -44,7 +44,7 @@ function Happify() {
       <div className="login">
         <div>
           <div id="svg-container">
-            <svg xmlns="http://www.w3.org/2000/svg" width="240" height="240" version="1.1" ref={svgRef}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="240" height="280" version="1.1" ref={svgRef}>
               <circle cx="120" cy="120" r="112" fill="#fac206" stroke="black" strokeWidth="4" />
               <ellipse cx="90" cy="84" rx="12" ry="30" fill="black" />
               <ellipse cx="150" cy="84" rx="12" ry="30" fill="black" />
@@ -61,11 +61,17 @@ function Happify() {
                   {artists?.items?.[0]?.name || 'Default'}
                 </textPath>
               </text>
+              <path id="curve" d="M20 210 Q100 280 180 240" fill="transparent" />
+              <text letterSpacing="2.4">
+                <textPath href="#curve" startOffset="35%">
+                  For {user?.display_name || 'Default'}
+                </textPath>
+              </text>
             </svg>
           </div>
         </div>
       </div>
-    </div>
+    </div >
   );
 }
 

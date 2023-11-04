@@ -49,8 +49,8 @@ function App() {
       </div>
       {token ? <Happify /> : <Login />}
       <div className="footer">
-        <a href="https://instagram.com/sam.patt" style={{ color: "black" }} target='_blank'> Made by Sam Patterson</a>
-        <a href="https://instagram.com/jackcameron02" style={{ color: "black" }} target='_blank'> and Jack Cameron</a>
+        <a href="https://www.linkedin.com/in/pattersonrsam/" style={{ color: "black" }} target='_blank'> Made by Sam Patterson</a>
+        <a href="https://www.linkedin.com/in/jackmoorecameron/" style={{ color: "black" }} target='_blank'> and Jack Cameron</a>
       </div>
     </div>
   );

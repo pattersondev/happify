@@ -18,11 +18,12 @@
   place-items: center;
 }
 
-.main > h1 {
+.main>h1 {
   margin-bottom: 1rem;
   animation: 1s ease-out 0s 1 slidein;
 }
-.main > h3 {
+
+.main>h3 {
   animation: 1.2s ease-out 0s 1 slidein;
 }
 
@@ -30,16 +31,22 @@
   0% {
     transform: translateX(-100%);
   }
+
   100% {
     transform: translateX(0);
   }
 }
 
 @media (max-width: 450px) {
-  .main > h1 {
+  .main>h1 {
     font-size: 7vw;
   }
-  .main > h3 {
+
+  .main>h3 {
     font-size: 4vw;
   }
+}
+
+.text-container {
+  margin-top: -300px;
 }
