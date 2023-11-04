@@ -69,8 +69,8 @@ function Happify() {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
       <div className="login">
-        <div style={{ border: '8px solid black', height: '50vh' }}>
-          <div style={{ border: '6px solid #ffd64a', height: '48.2vh' }}>
+        <div style={{ border: '8px solid black', height: '54vh' }}>
+          <div style={{ border: '6px solid #ffd64a', height: '52.2vh' }}>
             <svg xmlns="http://www.w3.org/2000/svg" width="240" height="350" version="1.1" ref={svgRef}>
               <circle cx="120" cy="170" r="112" fill="#ffd64a" stroke="#282725" strokeWidth="4" />
               <ellipse cx="90" cy="134" rx="12" ry="30" fill="#282725" />
