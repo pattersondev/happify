@@ -59,9 +59,9 @@ function Login() {
           <div>
             <div id="svg-container">
               <svg xmlns="http://www.w3.org/2000/svg" width="240" height="240" version="1.1" ref={svgRef}>
-                <circle cx="120" cy="120" r="112" fill="#fac206" stroke="black" strokeWidth="4" />
-                <ellipse cx="90" cy="84" rx="12" ry="30" fill="black" />
-                <ellipse cx="150" cy="84" rx="12" ry="30" fill="black" />
+                <circle cx="120" cy="120" r="112" fill="#ffd64a" stroke="#282725" strokeWidth="4" />
+                <ellipse cx="90" cy="84" rx="12" ry="30" fill="#282725" />
+                <ellipse cx="150" cy="84" rx="12" ry="30" fill="#282725" />
                 <path id="smilePath" d="M36 162 Q120 216, 204 162" fill="none" />
                 <text
                   id="text"
