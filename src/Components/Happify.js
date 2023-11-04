@@ -89,19 +89,19 @@ function Happify() {
                 </textPath>
               </text>
               <path id="monthCurve" d="M5 105 Q100 15 200 80" fill="transparent" />
-              <text letterSpacing="2.4" fontSize={calculateFontSize(monthString)} fill="#282725">
+              <text letterSpacing="2.4" fontSize={calculateFontSize(monthString)} fill="#282725" fontFamily="Inter Tight">
                 <textPath href="#monthCurve" startOffset={calculateOffset(monthString)}>
                   {monthString || 'LOADING'}
                 </textPath>
               </text>
               <path id="curve" d="M3 240 Q100 340 200 270" fill="transparent" />
-              <text letterSpacing="2.2" fontSize={calculateFontSize(userString)} fill="#282725">
+              <text letterSpacing="2.2" fontSize={calculateFontSize(userString)} fill="#282725" fontFamily="Inter Tight">
                 <textPath href="#curve" startOffset={calculateOffset(userString)}>
                   FOR {userString}
                 </textPath>
               </text>
             </svg>
-            <p style={{ textAlign: 'center', marginBottom: '20rem' }}>
+            <p style={{ textAlign: 'center', marginBottom: '20rem', fontFamily: "Inter Tight" }}>
               happify.club
             </p>
           </div>
