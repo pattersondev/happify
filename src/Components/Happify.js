@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import "./Login.css";
 import { useDataLayerValue } from "../DataLayer";
-import { yellow } from "@material-ui/core/colors";
+import happifyBanner from "../Assets/happify-banner.jpg";
 
 function Happify() {
   // Styling for the spotify button
@@ -23,11 +23,11 @@ function Happify() {
 
   const calculateFontSize = (monthString) => {
     if (monthString.length >= 10) {
-      return '10';
-    } else if (monthString.length > 5) {
       return '12';
-    } else {
+    } else if (monthString.length > 5) {
       return '14';
+    } else {
+      return '16';
     }
   };
 
@@ -45,18 +45,19 @@ function Happify() {
     const maxTextLength = 8;
     const baseStartOffset = 50;
 
-    let startOffset;
-    if (textLength <= 4) {
-      startOffset = 50;
-    } else {
-      startOffset = baseStartOffset - (textLength - maxTextLength) * 0.2;
-    }
+    let startOffset = 50;
+    // if (textLength <= 4) {
+    //   startOffset = 50;
+    // } else {
+    //   //startOffset = baseStartOffset - (textLength - maxTextLength) * 0.15;
+    //   startOffset = 50;
+    // }
 
     startOffset = Math.max(0, Math.min(100, startOffset));
     textPath.setAttribute("startOffset", `${startOffset}%`);
 
     // Calculate the new font size based on text length
-    const fontSize = Math.min(24, 240 / (textLength * 1.3));
+    const fontSize = Math.min(30, 240 / (textLength * 1.3));
 
     // Update the font size
     textPath.setAttribute("font-size", fontSize);
@@ -78,30 +79,31 @@ function Happify() {
               <path id="smilePath" d="M36 212 Q120 266, 204 212" fill="none" />
               <text
                 id="text"
-                fontSize="24"
+                fontSize="36"
                 fontFamily="Inter Tight"
                 fill="#282725"
                 textAnchor="middle"
                 letterSpacing="2.8"
+                fontWeight="bold"
               >
                 <textPath href="#smilePath" startOffset="50%" ref={textRef}>
                   {artistString}
                 </textPath>
               </text>
-              <path id="monthCurve" d="M5 107 Q100 10 215 87" fill="transparent" />
-              <text letterSpacing="2.4" fontSize={calculateFontSize(monthString)} fill="#282725" fontFamily="Inter Tight">
+              <path id="monthCurve" d="M5 112 Q100 10 205 87" fill="transparent" />
+              <text letterSpacing="2.4" fontSize={calculateFontSize(monthString)} fill="#282725" fontFamily="Inter Tight" fontWeight="bold">
                 <textPath href="#monthCurve" startOffset={calculateOffset(monthString)}>
                   {monthString || 'LOADING'}
                 </textPath>
               </text>
               <path id="curve" d="M3 240 Q100 340 200 270" fill="transparent" />
-              <text letterSpacing="2.2" fontSize={calculateFontSize(userString)} fill="#282725" fontFamily="Inter Tight">
+              <text letterSpacing="2.2" fontSize={calculateFontSize(userString)} fill="#282725" fontFamily="Inter Tight" fontWeight="bold">
                 <textPath href="#curve" startOffset={calculateOffset(userString)}>
                   FOR {userString}
                 </textPath>
               </text>
             </svg>
-            <p style={{ textAlign: 'center', marginBottom: '20rem', fontFamily: "Inter Tight" }}>
+            <p style={{ textAlign: 'center', marginBottom: '20rem', fontFamily: "Inter Tight", fontWeight: "bold" }}>
               happify.club
             </p>
           </div>
