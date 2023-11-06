@@ -21,7 +21,8 @@ function Login() {
 
   return (
     <div>
-      <div className="login">
+      <div className="login" style={{ paddingBottom: '15rem' }}>
+        <text style={{ fontSize: 36, marginTop: '6rem' }}> welcome to happify. </text>
         <IconButton href={loginUrl} className="button-container">
           <div>
             <div id="svg-container">

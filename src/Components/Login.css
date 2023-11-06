@@ -2,5 +2,6 @@
   display: grid;
   place-items: center;
   height: 100vh;
+  margin-bottom: 5rem;
   /* This makes the div take up the full viewport height */
 }
