@@ -75,8 +75,11 @@ function App() {
 
   return (
     <div className="App">
-      <div>
-        Header Holder
+      <div style={{ display: "flex", flexDirection: 'row', justifyContent: 'space-between' }}>
+        <h2 className="title">home</h2>
+        <h2 className="about">about</h2>
+        <h2 className="contact">contact</h2>
+        <h2 className="privacy">privacy</h2>
       </div>
       {token ? <Happify /> : <Login />}
       <div className="footer">

@@ -38,6 +38,7 @@ function Login() {
                   fill="black"
                   textAnchor="middle"
                   letterSpacing="2.4"
+                  fontWeight="bold"
                 >
                   <textPath href="#smilePath" startOffset="50%">
                     Login With Spotify
