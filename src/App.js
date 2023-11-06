@@ -75,16 +75,24 @@ function App() {
 
   return (
     <div className="App">
-      <div style={{ display: "flex", flexDirection: 'row', justifyContent: 'space-between' }}>
-        <h2 className="title">home</h2>
-        <h2 className="about">about</h2>
-        <h2 className="contact">contact</h2>
-        <h2 className="privacy">privacy</h2>
+      <div className="header-container">
+        <a href="/App" style={{ textDecoration: 'none', color: 'black' }}>
+          <h2 className="home">home</h2>
+        </a>
+        <a href="/About" style={{ textDecoration: 'none', color: 'black' }}>
+          <h2 className="about">about</h2>
+        </a>
+        <a href="/Contact" style={{ textDecoration: 'none', color: 'black' }}>
+          <h2 className="contact">contact</h2>
+        </a>
+        <a href="/Privacy" style={{ textDecoration: 'none', color: 'black' }}>
+          <h2 className="about">privacy</h2>
+        </a>
       </div>
       {token ? <Happify /> : <Login />}
       <div className="footer">
-        <a href="https://www.linkedin.com/in/pattersonrsam/" style={{ color: "black" }} target='_blank'> Made by Sam Patterson</a>
-        <a href="https://www.linkedin.com/in/jackmoorecameron/" style={{ color: "black" }} target='_blank'> and Jack Cameron</a>
+        <a href="https://www.linkedin.com/in/pattersonrsam/" style={{ color: "black" }} target='_blank'> created by sam patterson</a>
+        <a href="https://www.linkedin.com/in/jackmoorecameron/" style={{ color: "black" }} target='_blank'> and jack cameron</a>
       </div>
     </div>
   );

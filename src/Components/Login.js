@@ -41,7 +41,7 @@ function Login() {
                   fontWeight="bold"
                 >
                   <textPath href="#smilePath" startOffset="50%">
-                    Login With Spotify
+                    login with spotify
                   </textPath>
                 </text>
               </svg>

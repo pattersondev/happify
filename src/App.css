@@ -1,3 +1,4 @@
+/* Footer Styling */
 .footer {
   position: fixed;
   left: 0;
@@ -14,11 +15,23 @@
   text-decoration: none;
 }
 
+/* Header Tab Styling */
+.header-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.home, .about, .contact, .privacy {
+  margin-right: 10px; 
+}
+
+/* Font Styling */
 @font-face {
-  font-family: 'InterTightBold'; /* Provide a name for your font */
-  src: url('./fonts/InterTight-Bold.ttf') format('truetype'); /* Path to your TTF font file */
+  font-family: 'InterTightBold'; 
+  src: url('./fonts/InterTight-Bold.ttf') format('truetype'); 
 }
 
 body {
-  font-family: 'InterTightBold', sans-serif; /* Use the custom font for your text */
+  font-family: 'InterTightBold', sans-serif; /* Font Styling */
 }
