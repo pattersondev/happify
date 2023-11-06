@@ -13,3 +13,12 @@
   color: white;
   text-decoration: none;
 }
+
+@font-face {
+  font-family: 'InterTightBold'; /* Provide a name for your font */
+  src: url('./fonts/InterTight-Bold.ttf') format('truetype'); /* Path to your TTF font file */
+}
+
+body {
+  font-family: 'InterTightBold', sans-serif; /* Use the custom font for your text */
+}
