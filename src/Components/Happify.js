@@ -52,20 +52,12 @@ function Happify() {
       document.body.appendChild(clonedSvgElement);
 
       // Convert the cloned SVG to PNG
-      toPng(clonedSvgElement, { cacheBust: true, width: 1080, height: 1920 })
+      toPng(clonedSvgElement, { cacheBust: true })
         .then((dataUrl) => {
-          const link = document.createElement('a');
-          link.href = dataUrl;
-          link.download = 'my-image-name.png';
-
-          // Use msSaveOrOpenBlob if it's available (for IE), otherwise use createObjectURL
-          if (window.navigator.msSaveOrOpenBlob) {
-            const blob = new Blob([dataUrl], { type: 'image/png' });
-            window.navigator.msSaveOrOpenBlob(blob, 'my-image-name.png');
-          } else {
-            link.href = window.URL.createObjectURL(new Blob([dataUrl], { type: 'image/png' }));
-            link.click();
-          }
+          const link = document.createElement('a')
+          link.download = 'my-image-name.png'
+          link.href = dataUrl
+          link.click()
 
           // Remove the cloned SVG from the body
           document.body.removeChild(clonedSvgElement);
