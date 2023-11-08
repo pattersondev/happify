@@ -30,26 +30,39 @@ function Happify() {
 
     const svgElement = pngRef.current.querySelector('svg');
     if (svgElement) {
-      // Add a slight delay before the conversion
-      setTimeout(() => {
-        const clonedSvgElement = svgElement.cloneNode(true);
-        console.log(clonedSvgElement);
-        clonedSvgElement.setAttribute('transform', 'scale(.7)');
-        document.body.appendChild(clonedSvgElement);
+      // Create a clone of the SVG
+      const clonedSvgElement = svgElement.cloneNode(true);
 
-        toPng(clonedSvgElement, { cacheBust: true, })
-          .then((dataUrl) => {
-            const link = document.createElement('a')
-            link.download = 'my-image-name.png'
-            link.href = dataUrl
-            link.click()
+      // Get the bounding box of the SVG
+      const bbox = svgElement.getBBox();
 
-            document.body.removeChild(clonedSvgElement);
-          })
-          .catch((err) => {
-            console.log(err)
-          })
-      }, 100); // 100ms delay
+      // Calculate the aspect ratio of the SVG and the Instagram story
+      const svgAspectRatio = bbox.width / bbox.height;
+      const storyAspectRatio = 1080 / 1920;
+
+      // Calculate the scale factor
+      const scaleFactor = storyAspectRatio / svgAspectRatio;
+
+      // Scale the cloned SVG
+      clonedSvgElement.setAttribute('transform', `scale(${scaleFactor})`);
+
+      // Temporarily append the cloned SVG to the body
+      document.body.appendChild(clonedSvgElement);
+
+      // Convert the cloned SVG to PNG
+      toPng(clonedSvgElement, { cacheBust: true, width: 1080, height: 1920 })
+        .then((dataUrl) => {
+          const link = document.createElement('a')
+          link.download = 'my-image-name.png'
+          link.href = dataUrl
+          link.click()
+
+          // Remove the cloned SVG from the body
+          document.body.removeChild(clonedSvgElement);
+        })
+        .catch((err) => {
+          console.log(err)
+        })
     }
   }, [pngRef])
 
