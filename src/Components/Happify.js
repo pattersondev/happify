@@ -30,6 +30,11 @@ function Happify() {
 
     // Add a slight delay before the conversion
     setTimeout(() => {
+      const svgElement = pngRef.current.querySelector('svg');
+      if (svgElement) {
+        svgElement.setAttribute('transform', 'scale(0.50)');
+      }
+
       toPng(pngRef.current, { cacheBust: true, })
         .then((dataUrl) => {
           const link = document.createElement('a')
