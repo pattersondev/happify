@@ -28,11 +28,12 @@ function Happify() {
       return
     }
 
-    const svgElement = pngRef.current.querySelector('svg');
-    if (svgElement) {
-      // Create a clone of the SVG
-      const clonedSvgElement = svgElement.cloneNode(true);
+    // Create a clone of the div
+    const clonedDiv = pngRef.current.cloneNode(true);
 
+    // Find the SVG element within the cloned div
+    const svgElement = clonedDiv.querySelector('svg');
+    if (svgElement) {
       // Get the bounding box of the SVG
       const bbox = svgElement.getBBox();
 
@@ -43,30 +44,28 @@ function Happify() {
       // Calculate the scale factor
       const scaleFactor = storyAspectRatio / svgAspectRatio;
 
-      console.log(scaleFactor);
-
-      // Scale the cloned SVG
-      clonedSvgElement.setAttribute('transform', `scale(${scaleFactor})`);
-
-      // Temporarily append the cloned SVG to the body
-      document.body.appendChild(clonedSvgElement);
-
-      // Convert the cloned SVG to PNG
-      toPng(clonedSvgElement, { cacheBust: true })
-        .then((dataUrl) => {
-          const link = document.createElement('a')
-          link.download = 'my-image-name.png'
-          link.href = dataUrl
-          link.click()
-
-          // Remove the cloned SVG from the body
-          document.body.removeChild(clonedSvgElement);
-        })
-        .catch((err) => {
-          console.log(err)
-        })
+      // Scale down the SVG within the cloned div
+      svgElement.setAttribute('transform', `scale(${scaleFactor})`);
     }
-  }, [pngRef])
+
+    // Temporarily append the cloned div to the body
+    document.body.appendChild(clonedDiv);
+
+    // Convert the cloned div to PNG
+    toPng(clonedDiv, { cacheBust: true, width: 1080, height: 1920 })
+      .then((dataUrl) => {
+        const link = document.createElement('a')
+        link.download = 'my-image-name.png'
+        link.href = dataUrl
+        link.click()
+
+        // Remove the cloned div from the body
+        document.body.removeChild(clonedDiv);
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }, [pngRef]);
 
   const calculateFontSize = (monthString) => {
     if (monthString.length >= 10) {
