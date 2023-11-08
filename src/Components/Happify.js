@@ -28,16 +28,19 @@ function Happify() {
       return
     }
 
-    toPng(pngRef.current, { cacheBust: true, })
-      .then((dataUrl) => {
-        const link = document.createElement('a')
-        link.download = 'my-image-name.png'
-        link.href = dataUrl
-        link.click()
-      })
-      .catch((err) => {
-        console.log(err)
-      })
+    // Add a slight delay before the conversion
+    setTimeout(() => {
+      toPng(pngRef.current, { cacheBust: true, })
+        .then((dataUrl) => {
+          const link = document.createElement('a')
+          link.download = 'my-image-name.png'
+          link.href = dataUrl
+          link.click()
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+    }, 100); // 100ms delay
   }, [pngRef])
 
   const calculateFontSize = (monthString) => {
@@ -51,7 +54,7 @@ function Happify() {
   };
 
   const calculateOffset = (monthString) => {
-    return `${50 - monthString.length * 1.5}%`;
+    return `${50 - monthString.length * 1.6}%`;
   };
 
   const updateText = () => {
@@ -89,7 +92,7 @@ function Happify() {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
-      <div className="login">
+      <div className="happify">
         <div style={{ height: '54vh' }} ref={pngRef}>
           <svg xmlns="http://www.w3.org/2000/svg" width="240" height="350" version="1.1" ref={svgRef}>
             <circle cx="120" cy="170" r="112" fill="#ffd64a" stroke="#282725" strokeWidth="4" />
@@ -109,7 +112,7 @@ function Happify() {
                 {artistString}
               </textPath>
             </text>
-            <path id="monthCurve" d="M5 112 Q100 10 205 87" fill="transparent" />
+            <path id="monthCurve" d="M0 110 Q100 0 205 80" fill="transparent" />
             <text letterSpacing="2.4" fontSize={calculateFontSize(monthString)} fill="#282725" fontFamily="Inter Tight" fontWeight="bold">
               <textPath href="#monthCurve" startOffset={calculateOffset(monthString)}>
                 {monthString || 'LOADING'}
@@ -125,10 +128,10 @@ function Happify() {
           <p style={{ textAlign: 'center', fontFamily: "Inter Tight", fontWeight: "bold" }}>
             happify.club
           </p>
-          <Button onClick={onButtonClick} style={{ borderRadius: 30, marginTop: '2rem', fontFamily: "Inter Tight", fontWeight: "bold" }}>
-            share to instagram story
-          </Button>
         </div>
+        <Button onClick={onButtonClick} style={{ borderRadius: 30, fontFamily: "Inter Tight", fontWeight: "bold" }}>
+          share to instagram story
+        </Button>
       </div>
     </div>
   );
