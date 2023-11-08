@@ -34,7 +34,7 @@ function Happify() {
       setTimeout(() => {
         const clonedSvgElement = svgElement.cloneNode(true);
         console.log(clonedSvgElement);
-        clonedSvgElement.setAttribute('transform', 'scale(0.50)');
+        clonedSvgElement.setAttribute('transform', 'scale(.7)');
         document.body.appendChild(clonedSvgElement);
 
         toPng(clonedSvgElement, { cacheBust: true, })
