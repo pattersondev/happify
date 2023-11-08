@@ -28,24 +28,24 @@ function Happify() {
       return
     }
 
-    // Add a slight delay before the conversion
-    setTimeout(() => {
-      const svgElement = pngRef.current.querySelector('svg');
-      if (svgElement) {
-        svgElement.setAttribute('transform', 'scale(0.50)');
-      }
+    const svgElement = pngRef.current.querySelector('svg');
+    if (svgElement) {
+      // Add a slight delay before the conversion
+      setTimeout(() => {
+        clonedSvgElement.setAttribute('transform', 'scale(0.50)');
 
-      toPng(pngRef.current, { cacheBust: true, })
-        .then((dataUrl) => {
-          const link = document.createElement('a')
-          link.download = 'my-image-name.png'
-          link.href = dataUrl
-          link.click()
-        })
-        .catch((err) => {
-          console.log(err)
-        })
-    }, 100); // 100ms delay
+        toPng(clonedSvgElement, { cacheBust: true, })
+          .then((dataUrl) => {
+            const link = document.createElement('a')
+            link.download = 'my-image-name.png'
+            link.href = dataUrl
+            link.click()
+          })
+          .catch((err) => {
+            console.log(err)
+          })
+      }, 100); // 100ms delay
+    }
   }, [pngRef])
 
   const calculateFontSize = (monthString) => {
