@@ -20,10 +20,11 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  list-style: none; /*Removes Bullet Points*/
 }
 
 .home, .about, .contact, .privacy {
-  margin-right: 10px; 
+  margin-right: 20px; 
 }
 
 /* Font Styling */
