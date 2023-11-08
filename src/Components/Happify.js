@@ -52,7 +52,7 @@ function Happify() {
     document.body.appendChild(clonedDiv);
 
     // Convert the cloned div to PNG
-    toPng(clonedDiv, { cacheBust: true, width: 1080, height: 1920 })
+    toPng(clonedDiv, { cacheBust: true })
       .then((dataUrl) => {
         const link = document.createElement('a')
         link.download = 'my-image-name.png'
