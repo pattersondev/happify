@@ -1,9 +1,8 @@
-# A personalized pie chart with user's top music genres on Spotify 
+# A Personalized Smiley Face Graphic Powered By The Spotify API
 
-Check it live here 👉🏼 https://spotify-chart.web.app/
+Want to try it out? See the live version of the site here https://happifying.netlify.app/
 
 ---
-It mainly uses React and it's Context API
 
 To run locally 
 
@@ -17,6 +16,5 @@ To run locally
 
 In the spotify.js file
 
-Head over to https://developer.spotify.com/dashboard/ to get them 
 
 
