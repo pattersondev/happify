@@ -33,7 +33,9 @@ function Happify() {
       // Add a slight delay before the conversion
       setTimeout(() => {
         const clonedSvgElement = svgElement.cloneNode(true);
+        console.log(clonedSvgElement);
         clonedSvgElement.setAttribute('transform', 'scale(0.50)');
+        document.body.appendChild(clonedSvgElement);
 
         toPng(clonedSvgElement, { cacheBust: true, })
           .then((dataUrl) => {
@@ -41,6 +43,8 @@ function Happify() {
             link.download = 'my-image-name.png'
             link.href = dataUrl
             link.click()
+
+            document.body.removeChild(clonedSvgElement);
           })
           .catch((err) => {
             console.log(err)
