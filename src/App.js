@@ -119,18 +119,3 @@ function App() {
 }
 
 export default App;
-
-/*
-<a href="/App" style={{ textDecoration: 'none', color: 'black' }}>
-<h2 className="home">home</h2>
-</a>
-<a href="/About" style={{ textDecoration: 'none', color: 'black' }}>
-<h2 className="about">about</h2>
-</a>
-<a href="/Contact" style={{ textDecoration: 'none', color: 'black' }}>
-<h2 className="contact">contact</h2>
-</a>
-<a href="/Privacy" style={{ textDecoration: 'none', color: 'black' }}>
-<h2 className="about">privacy</h2>
-</a> 
-*/
