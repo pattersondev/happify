@@ -5,6 +5,12 @@
   place-items: center;
 }
 
+.happify {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+
 .main>h1 {
   margin-bottom: 1rem;
   animation: 1s ease-out 0s 1 slidein;
