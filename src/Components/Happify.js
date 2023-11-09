@@ -91,8 +91,12 @@ function Happify() {
     }
   };
 
-  const calculateOffset = (monthString) => {
-    return `${50 - monthString.length * 1.6}%`;
+  const calculateOffset = (monthString, month) => {
+    if (month) {
+      return `${(50 - monthString.length * 1.6) + 1}%`;
+    } else {
+      return `${(50 - monthString.length * 1.6) - 2}%`;
+    }
   };
 
   const updateText = () => {
@@ -106,12 +110,6 @@ function Happify() {
     const baseStartOffset = 50;
 
     let startOffset = 50;
-    // if (textLength <= 4) {
-    //   startOffset = 50;
-    // } else {
-    //   //startOffset = baseStartOffset - (textLength - maxTextLength) * 0.15;
-    //   startOffset = 50;
-    // }
 
     startOffset = Math.max(0, Math.min(100, startOffset));
     textPath.setAttribute("startOffset", `${startOffset}%`);
@@ -152,13 +150,13 @@ function Happify() {
             </text>
             <path id="monthCurve" d="M0 110 Q100 0 205 80" fill="transparent" />
             <text letterSpacing="2.4" fontSize={calculateFontSize(monthString)} fill="#282725" fontFamily="Inter Tight" fontWeight="bold">
-              <textPath href="#monthCurve" startOffset={calculateOffset(monthString)}>
+              <textPath href="#monthCurve" startOffset={calculateOffset(monthString, true)}>
                 {monthString || 'LOADING'}
               </textPath>
             </text>
-            <path id="curve" d="M3 240 Q100 340 200 270" fill="transparent" />
+            <path id="curve" d="M3 250 Q100 350 200 280" fill="transparent" />
             <text letterSpacing="2.2" fontSize={calculateFontSize(userString)} fill="#282725" fontFamily="Inter Tight" fontWeight="bold">
-              <textPath href="#curve" startOffset={calculateOffset(userString)}>
+              <textPath href="#curve" startOffset={calculateOffset(userString, false)}>
                 FOR {userString}
               </textPath>
             </text>
