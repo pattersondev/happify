@@ -83,7 +83,7 @@ function Happify() {
 
   const calculateFontSize = (monthString) => {
     if (monthString.length >= 10) {
-      return '12';
+      return '11';
     } else if (monthString.length > 5) {
       return '14';
     } else {
