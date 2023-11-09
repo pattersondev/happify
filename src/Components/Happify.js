@@ -50,6 +50,7 @@ function Happify() {
       clonedDiv.style.flexDirection = 'column';
       clonedDiv.style.justifyContent = 'center';
       clonedDiv.style.alignItems = 'center';
+      clonedDiv.style.backGroundColor = 'white';
 
       const style = document.createElement('style');
       style.innerHTML = `
@@ -71,10 +72,19 @@ function Happify() {
         const link = document.createElement('a')
         link.download = 'my-image-name.png'
         link.href = dataUrl
-        link.click()
+        // link.click()
 
         // Remove the cloned div from the body
         document.body.removeChild(clonedDiv);
+
+        const img = document.createElement('img');
+
+        // Set the src of the img element to the PNG data URL
+        img.src = dataUrl;
+
+        // Append the img element to the body
+        document.body.appendChild(img);
+        pngRef.current.parentNode.removeChild(pngRef.current);
       })
       .catch((err) => {
         console.log(err)
