@@ -45,7 +45,9 @@ function Happify() {
       const scaleFactor = storyAspectRatio / svgAspectRatio;
 
       // Scale down the SVG within the cloned div
-      svgElement.setAttribute('transform', `scale(${scaleFactor})`);
+      clonedDiv.style.display = 'flex';
+      clonedDiv.style.justifyContent = 'center';
+      clonedDiv.style.alignItems = 'center';
     }
 
     // Temporarily append the cloned div to the body
