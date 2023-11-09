@@ -4,6 +4,7 @@ import { useDataLayerValue } from "../DataLayer";
 import happifyBanner from "../Assets/happify-banner.jpg";
 import { Button } from "@material-ui/core";
 import { toPng } from 'html-to-image';
+import fontFile from '../fonts/InterTight-Bold.ttf';
 
 function Happify() {
   // Styling for the spotify button
@@ -46,8 +47,19 @@ function Happify() {
 
       // Scale down the SVG within the cloned div
       clonedDiv.style.display = 'flex';
+      clonedDiv.style.flexDirection = 'column';
       clonedDiv.style.justifyContent = 'center';
       clonedDiv.style.alignItems = 'center';
+
+      const style = document.createElement('style');
+      style.innerHTML = `
+        @font-face {
+          font-family: 'Inter Tight';
+          font-weight: 'bold';
+          src: url(${fontFile}) format('truetype');
+        }
+      `;
+      clonedDiv.appendChild(style);
     }
 
     // Temporarily append the cloned div to the body
