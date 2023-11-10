@@ -1,8 +1,11 @@
 import React from 'react';
+import "./About.css";
 
 function About() {
     return (
-        <h1>this is the about page</h1>
+        <div class="center">
+                <text style={{ fontSize: 36, marginTop: '6rem' }}>ABOUT </text>
+        </div>
     );
 }
 
