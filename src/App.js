@@ -87,7 +87,7 @@ function App() {
         <div className="header-container">
           <li>
             <Link to="/" style={{ textDecoration: 'none', color: 'black' }}>
-              <h2 className="Home">home</h2>
+              <h2 className="home">home</h2>
             </Link>
           </li>
           <li>
@@ -97,7 +97,7 @@ function App() {
           </li>
           <li>
             <Link to="/Privacy" style={{ textDecoration: 'none', color: 'black' }}>
-              <h2 className="about">privacy</h2>
+              <h2 className="privacy">privacy</h2>
             </Link>
           </li>
           <li>
@@ -112,7 +112,7 @@ function App() {
           <Route exact path='/Privacy' element={< Privacy />}></Route>
           <Route exact path='/Contact' element={< Contact />}></Route>
         </Routes>
-        
+
         <div className="footer">
           <a href="https://www.linkedin.com/in/pattersonrsam/" style={{ color: "black" }} target='_blank'> created by sam patterson</a>
           <a href="https://www.linkedin.com/in/jackmoorecameron/" style={{ color: "black" }} target='_blank'> and jack cameron</a>
