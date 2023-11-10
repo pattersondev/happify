@@ -112,7 +112,7 @@ function App() {
           <Route exact path='/Privacy' element={< Privacy />}></Route>
           <Route exact path='/Contact' element={< Contact />}></Route>
         </Routes>
-        {token ? <Happify /> : <Login />}
+        
         <div className="footer">
           <a href="https://www.linkedin.com/in/pattersonrsam/" style={{ color: "black" }} target='_blank'> created by sam patterson</a>
           <a href="https://www.linkedin.com/in/jackmoorecameron/" style={{ color: "black" }} target='_blank'> and jack cameron</a>
