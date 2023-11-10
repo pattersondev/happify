@@ -8,6 +8,7 @@ import fontFile from '../fonts/InterTight-Bold.ttf';
 
 function Happify() {
   // Styling for the spotify button
+  console.log('HI');
   const [{ artists, user }] = useDataLayerValue();
   const pngRef = useRef(null);
 
@@ -75,15 +76,28 @@ function Happify() {
         // link.click()
 
         // Remove the cloned div from the body
-        document.body.removeChild(clonedDiv);
+        //document.body.removeChild(clonedDiv);
 
         const img = document.createElement('img');
 
         // Set the src of the img element to the PNG data URL
         img.src = dataUrl;
 
-        // Append the img element to the body
-        document.body.appendChild(img);
+        // Apply the same classes as the SVG
+        //img.className = svgRef.current.className;
+
+        // Apply the same styles as the SVG
+        img.style.cssText = svgRef.current.style.cssText;
+
+
+        img.className = 'img-class';
+        // img.style.width = '112.5rem';
+        // img.style.height = '34.375rem';
+
+        // Append the img element to the parent of the div
+        pngRef.current.parentNode.appendChild(img);
+
+        // Remove the div from the page
         pngRef.current.parentNode.removeChild(pngRef.current);
       })
       .catch((err) => {
