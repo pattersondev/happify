@@ -84,10 +84,15 @@ function Happify() {
         img.src = dataUrl;
 
         // Apply the same classes as the SVG
-        img.className = svgRef.current.className;
+        //img.className = svgRef.current.className;
 
         // Apply the same styles as the SVG
         img.style.cssText = svgRef.current.style.cssText;
+
+
+        img.className = 'img-class';
+        // img.style.width = '112.5rem';
+        // img.style.height = '34.375rem';
 
         // Append the img element to the parent of the div
         pngRef.current.parentNode.appendChild(img);
