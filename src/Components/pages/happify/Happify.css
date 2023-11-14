@@ -40,13 +40,6 @@
   }
 }
 
-@media only screen and (max-width: 600px) {
-  .img-class {
-    width: 20%;
-    height: 25%;
-  }
-}
-
 #svg-container {
   padding-top: 50px;
 }

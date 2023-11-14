@@ -24,7 +24,7 @@ function Happify() {
 
   const userString = user?.display_name?.split(' ')[0].toUpperCase() || 'LOADING';
 
-  const onButtonClick = useCallback(() => {
+  const generateShareableImage = useCallback(() => {
     if (pngRef.current === null) {
       return
     }
@@ -70,13 +70,6 @@ function Happify() {
     // Convert the cloned div to PNG
     toPng(clonedDiv, { cacheBust: true })
       .then((dataUrl) => {
-        const link = document.createElement('a')
-        link.download = 'my-image-name.png'
-        link.href = dataUrl
-        // link.click()
-
-        // Remove the cloned div from the body
-        //document.body.removeChild(clonedDiv);
 
         const img = document.createElement('img');
 
@@ -91,14 +84,16 @@ function Happify() {
 
 
         img.className = 'img-class';
-        // img.style.width = '112.5rem';
-        // img.style.height = '34.375rem';
-
+        img.style.height = '55vh';
         // Append the img element to the parent of the div
         pngRef.current.parentNode.appendChild(img);
 
         // Remove the div from the page
         pngRef.current.parentNode.removeChild(pngRef.current);
+        const div = document.querySelector('.x');
+        if (div) {
+          div.remove();
+        }
       })
       .catch((err) => {
         console.log(err)
@@ -143,17 +138,20 @@ function Happify() {
 
     // Update the font size
     textPath.setAttribute("font-size", fontSize);
+
+    if (textPath.textContent !== 'LOADING' && userString !== 'LOADING') generateShareableImage();
   };
 
   useEffect(() => {
-    updateText(); // Call the updateText function after the component mounts
+    const images = document.getElementsByTagName('img');
+    if (images.length === 0) updateText();
   }, [artists]);
 
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
       <div className="happify">
-        <div style={{ height: '54vh' }} ref={pngRef}>
+        <div className="x" style={{ height: '54vh' }} ref={pngRef}>
           <svg xmlns="http://www.w3.org/2000/svg" width="240" height="350" version="1.1" ref={svgRef}>
             <circle cx="120" cy="170" r="112" fill="#ffd64a" stroke="#282725" strokeWidth="4" />
             <ellipse cx="90" cy="134" rx="12" ry="30" fill="#282725" />
@@ -189,9 +187,6 @@ function Happify() {
             happify.club
           </p>
         </div>
-        <Button onClick={onButtonClick} style={{ borderRadius: 30, fontFamily: "Inter Tight", fontWeight: "bold" }}>
-          share to instagram story
-        </Button>
       </div>
     </div>
   );
