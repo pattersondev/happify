@@ -8,7 +8,6 @@ import fontFile from '../../../fonts/InterTight-Bold.ttf';
 
 function Happify() {
   // Styling for the spotify button
-  console.log('HI');
   const [{ artists, user }] = useDataLayerValue();
   const pngRef = useRef(null);
 

@@ -9,9 +9,10 @@ function Home() {
   const [{ token }] = useDataLayerValue();
 
   if (token?.access_token !== undefined) {
-    return <Happify />
+    return <>
+      <Happify /></>
   } else {
-    return <Login />
+    return <><Login /></>
   }
 }
 

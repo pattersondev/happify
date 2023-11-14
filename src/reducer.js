@@ -5,7 +5,6 @@ export const initialState = {
   token: null,
   genres: null,
   values: null,
-  token: null,
 };
 
 const reducer = (state, action) => {
@@ -34,11 +33,6 @@ const reducer = (state, action) => {
       return {
         ...state,
         values: action.values,
-      };
-    case "SET_TOKEN":
-      return {
-        ...state,
-        token: action.token,
       };
     default:
       return state;
