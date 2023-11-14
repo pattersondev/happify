@@ -1,4 +1,4 @@
-import React, { useEffect, Component } from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Privacy from "./Components/pages/privacy/Privacy";
 import About from "./Components/pages/about/About";
@@ -14,7 +14,7 @@ const spotify = new SpotifyWebApi();
 
 function App() {
 
-  const [{ token }, dispatch] = useDataLayerValue();
+  const [dispatch] = useDataLayerValue();
 
   useEffect(() => {
     const token = getResponseToken();
@@ -45,40 +45,6 @@ function App() {
         });
       });
     }
-
-    spotify.getMyTopArtists({ limit: 100 }).then((artists) => {
-      let artistGenres = artists?.items
-        ?.map((artist) => artist.genres.map((genre) => genre))
-        .flat()
-        .reduce((total, curr) => {
-          curr in total ? total[curr]++ : (total[curr] = 1);
-          return total;
-        }, {});
-
-      // Copy the object so it can be handled
-      let artistCopy = {};
-      Object.assign(artistCopy, artistGenres);
-
-      // Orders the genres by most found
-      let sortedGenres = Object.entries(artistCopy).sort(
-        (a, b) => b[1] - a[1]
-      );
-
-      // Separate the top 10 genres and counts to pass to the PieChart component
-      let genres = sortedGenres.map((e) => e[0]).slice(0, 10);
-      let values = sortedGenres.map((e) => e[1]).slice(0, 10);
-
-
-      dispatch({
-        type: "SET_GENRES",
-        genres,
-      });
-      dispatch({
-        type: "SET_TOKEN",
-        token: token,
-      });
-    });
-
   }, [dispatch]);
   return (
     <Router>

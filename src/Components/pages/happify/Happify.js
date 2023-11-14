@@ -35,7 +35,7 @@ function Happify() {
 
     // Find the SVG element within the cloned div
     const svgElement = clonedDiv.querySelector('svg');
-    console.log(svgElement);
+
     if (svgElement) {
       // Get the bounding box of the SVG
       const bbox = svgElement.getBBox();

@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React from "react";
 import "./Login.css";
 import { loginUrl } from "../../../spotify";
 import Button from "@material-ui/core/Button";
