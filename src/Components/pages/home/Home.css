@@ -34,7 +34,7 @@
 /* Font Styling */
 @font-face {
   font-family: 'InterTightBold';
-  src: url('../../fonts/InterTight-Bold.ttf') format('truetype');
+  src: url('../../../fonts/InterTight-Bold.ttf') format('truetype');
 }
 
 body {

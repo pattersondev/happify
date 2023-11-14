@@ -1,10 +1,10 @@
 import React, { useRef, useEffect, useCallback } from "react";
-import "./Login.css";
-import { useDataLayerValue } from "../DataLayer";
-import happifyBanner from "../Assets/happify-banner.jpg";
+import "../login/Login.css";
+import { useDataLayerValue } from "../../../DataLayer";
+import happifyBanner from "../../../Assets/happify-banner.jpg";
 import { Button } from "@material-ui/core";
 import { toPng } from 'html-to-image';
-import fontFile from '../fonts/InterTight-Bold.ttf';
+import fontFile from '../../../fonts/InterTight-Bold.ttf';
 
 function Happify() {
   // Styling for the spotify button
@@ -35,6 +35,7 @@ function Happify() {
 
     // Find the SVG element within the cloned div
     const svgElement = clonedDiv.querySelector('svg');
+    console.log(svgElement);
     if (svgElement) {
       // Get the bounding box of the SVG
       const bbox = svgElement.getBBox();

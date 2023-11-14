@@ -1,16 +1,14 @@
 import React, { useEffect, Component } from "react";
-//import React, { Component } from 'react'; 
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import Privacy from "./Components/pages/Privacy";
-import About from "./Components/pages/About";
-import Contact from "./Components/pages/Contact";
-import Home from "./Components/pages/Home";
+import Privacy from "./Components/pages/privacy/Privacy";
+import About from "./Components/pages/about/About";
+import Contact from "./Components/pages/contact/Contact";
+import Home from "./Components/pages/home/Home";
 import "./App.css";
-import Login from "./Components/Login";
 import { getResponseToken } from "./spotify";
 import SpotifyWebApi from "spotify-web-api-js";
 import { useDataLayerValue } from "./DataLayer";
-import Happify from "./Components/Happify";
+import Happify from "./Components/pages/happify/Happify";
 
 const spotify = new SpotifyWebApi();
 
@@ -71,16 +69,17 @@ function App() {
       let values = sortedGenres.map((e) => e[1]).slice(0, 10);
 
 
-      console.log(genres);
       dispatch({
         type: "SET_GENRES",
         genres,
       });
+      dispatch({
+        type: "SET_TOKEN",
+        token: token,
+      });
     });
 
   }, [dispatch]);
-
-
   return (
     <Router>
       <div className="App">
@@ -111,6 +110,7 @@ function App() {
           <Route exact path='/About' element={< About />}></Route>
           <Route exact path='/Privacy' element={< Privacy />}></Route>
           <Route exact path='/Contact' element={< Contact />}></Route>
+          <Route path="/spotify/callback" element={<Happify />}></Route>
         </Routes>
 
         <div className="footer">
