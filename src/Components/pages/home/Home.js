@@ -46,7 +46,7 @@ function Home() {
 
   return (
     <div>
-      <Login />
+      {token ? <Happify /> : <Login />}
     </div>
   )
 }
