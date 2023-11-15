@@ -26,8 +26,9 @@ function Happify() {
   const userString = user?.display_name?.split(' ')[0].toUpperCase() || 'LOADING';
 
   const generateShareableImage = useCallback(() => {
-    if (pngRef.current === null) {
-      return
+
+    if (userString === undefined || userString === '') {
+      updateText();
     }
 
     // Create a clone of the div
