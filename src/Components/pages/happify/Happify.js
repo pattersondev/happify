@@ -104,7 +104,7 @@ function Happify() {
   const calculateFontSize = (monthString, month) => {
     if (true) {
       if (monthString.length >= 10) {
-        return '16';
+        return '14';
       } else if (monthString.length > 5 && monthString.length < 10) {
         return '18';
       } else {
@@ -115,7 +115,7 @@ function Happify() {
 
   const calculateOffset = (monthString, month) => {
     if (month) {
-      return `${(50 - monthString.length * 1.6) - 2}%`;
+      return `${(50 - monthString.length * 1.6) + 2}%`;
     } else {
       return `${(50 - monthString.length * 1.8) - 2}%`;
     }
@@ -158,7 +158,12 @@ function Happify() {
         <div className="happify-banner">
           <div className="x" style={{ height: '54vh' }} ref={pngRef}>
             <svg xmlns="http://www.w3.org/2000/svg" width="240" height="350" version="1.1" ref={svgRef}>
-              <circle cx="120" cy="170" r="112" fill="#ffd64a" stroke="#282725" strokeWidth="4" />
+              <defs>
+                <filter id="shadow">
+                  <feDropShadow dx="0" dy="0" stdDeviation="4" />
+                </filter>
+              </defs>
+              <circle cx="120" cy="170" r="112" fill="#ffd64a" stroke="#282725" strokeWidth="4" filter="url(#shadow)" />
               <ellipse cx="90" cy="134" rx="12" ry="30" fill="#282725" />
               <ellipse cx="150" cy="134" rx="12" ry="30" fill="#282725" />
               <path id="smilePath" d="M36 192 Q120 280, 204 192" fill="none" />
@@ -175,9 +180,9 @@ function Happify() {
                   {artistString}
                 </textPath>
               </text>
-              <path id="monthCurve" d="M0 110 Q100 0 205 80" fill="transparent" />
-              <text letterSpacing=".5" fontSize={calculateFontSize(monthString, true)} fill="#282725" fontFamily="Inter Tight" fontWeight="bold">
-                <textPath href="#monthCurve" startOffset={calculateOffset(monthString, true)}>
+              <path id="monthCurve" d="M0 120 Q120 -30 250 135" fill="transparent" />
+              <text letterSpacing=".5" fontSize={20} fill="#282725" fontFamily="Inter Tight" fontWeight="bold">
+                <textPath href="#monthCurve" startOffset={20.6}>
                   {monthString || 'LOADING'}
                 </textPath>
               </text>
@@ -194,7 +199,7 @@ function Happify() {
           </div>
         </div>
       </div>
-    </div>
+    </div >
   );
 }
 
