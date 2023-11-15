@@ -143,7 +143,7 @@ function Happify() {
     // Update the font size
     textPath.setAttribute("font-size", fontSize);
 
-    if (textPath.textContent !== 'LOADING' && userString !== 'LOADING') generateShareableImage();
+    //if (textPath.textContent !== 'LOADING' && userString !== 'LOADING') generateShareableImage();
   };
 
   useEffect(() => {
