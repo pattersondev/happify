@@ -30,17 +30,17 @@ function Login() {
                 <circle cx="120" cy="120" r="112" fill="#fbd847" stroke="#282725" strokeWidth="4" />
                 <ellipse cx="90" cy="84" rx="12" ry="30" fill="#282725" />
                 <ellipse cx="150" cy="84" rx="12" ry="30" fill="#282725" />
-                <path id="smilePath" d="M36 162 Q120 216, 204 162" fill="none" />
+                <path id="smilePath" d="M36 140 Q120 240, 204 140" fill="none" />
                 <text
                   id="text"
                   fontSize="13"
                   fontFamily="Inter Tight"
                   fill="black"
                   textAnchor="middle"
-                  letterSpacing="2.4"
+                  letterSpacing=".5"
                   fontWeight="bold"
                 >
-                  <textPath href="#smilePath" startOffset="50%">
+                  <textPath href="#smilePath" startOffset="50%" fontSize="20">
                     login with spotify
                   </textPath>
                 </text>

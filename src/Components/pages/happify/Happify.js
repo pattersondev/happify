@@ -18,6 +18,7 @@ function Happify() {
   monthString += ' TOP ARTIST';
 
   let artistString = artists?.items?.[0]?.name.toLowerCase() || 'LOADING';
+
   if (artistString === 'DREW') {
     artistString = 'COPYWRITE';
   }
@@ -92,7 +93,7 @@ function Happify() {
         pngRef.current.parentNode.removeChild(pngRef.current);
         const div = document.querySelector('.x');
         if (div) {
-          div.remove();
+          //div.remove();
         }
       })
       .catch((err) => {
@@ -134,7 +135,7 @@ function Happify() {
     textPath.setAttribute("startOffset", `${startOffset}%`);
 
     // Calculate the new font size based on text length
-    const fontSize = Math.min(30, 240 / (textLength * 1.3));
+    const fontSize = Math.min(40, 240 / (textLength * .6));
 
     // Update the font size
     textPath.setAttribute("font-size", fontSize);
@@ -156,14 +157,14 @@ function Happify() {
             <circle cx="120" cy="170" r="112" fill="#ffd64a" stroke="#282725" strokeWidth="4" />
             <ellipse cx="90" cy="134" rx="12" ry="30" fill="#282725" />
             <ellipse cx="150" cy="134" rx="12" ry="30" fill="#282725" />
-            <path id="smilePath" d="M36 212 Q120 266, 204 212" fill="none" />
+            <path id="smilePath" d="M36 192 Q120 280, 204 192" fill="none" />
             <text
               id="text"
               fontSize="36"
               fontFamily="Inter Tight"
               fill="#282725"
               textAnchor="middle"
-              letterSpacing="2.8"
+              letterSpacing=".3"
               fontWeight="bold"
             >
               <textPath href="#smilePath" startOffset="50%" ref={textRef}>
