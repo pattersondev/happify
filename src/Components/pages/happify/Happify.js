@@ -147,7 +147,7 @@ function Happify() {
 
   useEffect(() => {
     const images = document.getElementsByTagName('img');
-    if (images.length === 0) updateText();
+    if (images.length >= 1 && images.length <= 2) updateText();
   }, [artists]);
 
 
