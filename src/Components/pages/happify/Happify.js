@@ -93,7 +93,7 @@ function Happify() {
         pngRef.current.parentNode.removeChild(pngRef.current);
         const div = document.querySelector('.x');
         if (div) {
-          //div.remove();
+          div.remove();
         }
       })
       .catch((err) => {
@@ -101,21 +101,23 @@ function Happify() {
       })
   }, [pngRef]);
 
-  const calculateFontSize = (monthString) => {
-    if (monthString.length >= 10) {
-      return '11';
-    } else if (monthString.length > 5) {
-      return '14';
-    } else {
-      return '16';
+  const calculateFontSize = (monthString, month) => {
+    if (true) {
+      if (monthString.length >= 10) {
+        return '16';
+      } else if (monthString.length > 5 && monthString.length < 10) {
+        return '18';
+      } else {
+        return '20';
+      }
     }
   };
 
   const calculateOffset = (monthString, month) => {
     if (month) {
-      return `${(50 - monthString.length * 1.6) + 1}%`;
-    } else {
       return `${(50 - monthString.length * 1.6) - 2}%`;
+    } else {
+      return `${(50 - monthString.length * 1.8) - 2}%`;
     }
   };
 
@@ -151,42 +153,45 @@ function Happify() {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
+      <img src={happifyBanner} alt="happify-banner" style={{ width: '17rem', height: '7rem' }} />
       <div className="happify">
-        <div className="x" style={{ height: '54vh' }} ref={pngRef}>
-          <svg xmlns="http://www.w3.org/2000/svg" width="240" height="350" version="1.1" ref={svgRef}>
-            <circle cx="120" cy="170" r="112" fill="#ffd64a" stroke="#282725" strokeWidth="4" />
-            <ellipse cx="90" cy="134" rx="12" ry="30" fill="#282725" />
-            <ellipse cx="150" cy="134" rx="12" ry="30" fill="#282725" />
-            <path id="smilePath" d="M36 192 Q120 280, 204 192" fill="none" />
-            <text
-              id="text"
-              fontSize="36"
-              fontFamily="Inter Tight"
-              fill="#282725"
-              textAnchor="middle"
-              letterSpacing=".3"
-              fontWeight="bold"
-            >
-              <textPath href="#smilePath" startOffset="50%" ref={textRef}>
-                {artistString}
-              </textPath>
-            </text>
-            <path id="monthCurve" d="M0 110 Q100 0 205 80" fill="transparent" />
-            <text letterSpacing="2.4" fontSize={calculateFontSize(monthString)} fill="#282725" fontFamily="Inter Tight" fontWeight="bold">
-              <textPath href="#monthCurve" startOffset={calculateOffset(monthString, true)}>
-                {monthString || 'LOADING'}
-              </textPath>
-            </text>
-            <path id="curve" d="M3 250 Q100 350 200 280" fill="transparent" />
-            <text letterSpacing="2.2" fontSize={calculateFontSize(userString)} fill="#282725" fontFamily="Inter Tight" fontWeight="bold">
-              <textPath href="#curve" startOffset={calculateOffset(userString, false)}>
-                FOR {userString}
-              </textPath>
-            </text>
-          </svg>
-          <p style={{ textAlign: 'center', fontFamily: "Inter Tight", fontWeight: "bold" }}>
-            happify.club
-          </p>
+        <div className="happify-banner">
+          <div className="x" style={{ height: '54vh' }} ref={pngRef}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="240" height="350" version="1.1" ref={svgRef}>
+              <circle cx="120" cy="170" r="112" fill="#ffd64a" stroke="#282725" strokeWidth="4" />
+              <ellipse cx="90" cy="134" rx="12" ry="30" fill="#282725" />
+              <ellipse cx="150" cy="134" rx="12" ry="30" fill="#282725" />
+              <path id="smilePath" d="M36 192 Q120 280, 204 192" fill="none" />
+              <text
+                id="text"
+                fontSize="36"
+                fontFamily="Inter Tight"
+                fill="#282725"
+                textAnchor="middle"
+                letterSpacing=".3"
+                fontWeight="bold"
+              >
+                <textPath href="#smilePath" startOffset="50%" ref={textRef}>
+                  {artistString}
+                </textPath>
+              </text>
+              <path id="monthCurve" d="M0 110 Q100 0 205 80" fill="transparent" />
+              <text letterSpacing=".5" fontSize={calculateFontSize(monthString, true)} fill="#282725" fontFamily="Inter Tight" fontWeight="bold">
+                <textPath href="#monthCurve" startOffset={calculateOffset(monthString, true)}>
+                  {monthString || 'LOADING'}
+                </textPath>
+              </text>
+              <path id="curve" d="M3 250 Q100 350 200 280" fill="transparent" />
+              <text letterSpacing=".5" fontSize={calculateFontSize(userString, false)} fill="#282725" fontFamily="Inter Tight" fontWeight="bold">
+                <textPath href="#curve" startOffset={calculateOffset(userString, false)}>
+                  FOR {userString}
+                </textPath>
+              </text>
+            </svg>
+            <p style={{ textAlign: 'center', fontFamily: "Inter Tight", fontWeight: "bold" }}>
+              happify.club
+            </p>
+          </div>
         </div>
       </div>
     </div>
