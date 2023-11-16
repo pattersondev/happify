@@ -9,6 +9,7 @@ import { getResponseToken } from "./spotify";
 import SpotifyWebApi from "spotify-web-api-js";
 import { useDataLayerValue } from "./DataLayer";
 import Happify from "./Components/pages/happify/Happify";
+import NavBar from "./Components/NavBar";
 
 const spotify = new SpotifyWebApi();
 
@@ -47,36 +48,16 @@ function App() {
     }
   }, [dispatch]);
   return (
-    <Router>
+<Router>
       <div className="App">
-        <nav className="header-container">
-          <li>
-            <Link to="/" style={{ textDecoration: 'none', color: 'black' }}>
-              <h2 className="home">home</h2>
-            </Link>
-          </li>
-          <li>
-            <Link to="/About" style={{ textDecoration: 'none', color: 'black' }}>
-              <h2 className="about">about</h2>
-            </Link>
-          </li>
-          <li>
-            <Link to="/Privacy" style={{ textDecoration: 'none', color: 'black' }}>
-              <h2 className="privacy">privacy</h2>
-            </Link>
-          </li>
-          <li>
-            <Link to="/Contact" style={{ textDecoration: 'none', color: 'black' }}>
-              <h2 className="contact">contact</h2>
-            </Link>
-          </li>
-        </nav>
+        <NavBar />
+
         <Routes>
-          <Route path='' element={< Home />}></Route>
-          <Route path='/About' element={< About />}></Route>
-          <Route path='/Privacy' element={< Privacy />}></Route>
-          <Route path='/Contact' element={< Contact />}></Route>
-          <Route path="/spotify/callback" element={<Happify />}></Route>
+          <Route path="/" element={<Home />} />
+          <Route path='/about' element={<About />} />
+          <Route path='/privacy' element={<Privacy />} />
+          <Route path='/contact' element={<Contact />} />
+          <Route path="/spotify/callback" element={<Happify />} />
         </Routes>
 
         <div className="footer">
