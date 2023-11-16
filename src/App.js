@@ -49,7 +49,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <div className="header-container">
+        <nav className="header-container">
           <li>
             <Link to="/" style={{ textDecoration: 'none', color: 'black' }}>
               <h2 className="home">home</h2>
@@ -70,7 +70,7 @@ function App() {
               <h2 className="contact">contact</h2>
             </Link>
           </li>
-        </div>
+        </nav>
         <Routes>
           <Route path='' element={< Home />}></Route>
           <Route path='/About' element={< About />}></Route>
