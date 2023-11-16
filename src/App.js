@@ -73,10 +73,10 @@ function App() {
         </div>
         <Routes>
           <Route path='' element={< Home />}></Route>
-          <Route exact path='/About' element={< About />}></Route>
-          <Route exact path='/Privacy' element={< Privacy />}></Route>
-          <Route exact path='/Contact' element={< Contact />}></Route>
-          <Route exact path="/spotify/callback" element={<Happify />}></Route>
+          <Route path='/About' element={< About />}></Route>
+          <Route path='/Privacy' element={< Privacy />}></Route>
+          <Route path='/Contact' element={< Contact />}></Route>
+          <Route path="/spotify/callback" element={<Happify />}></Route>
         </Routes>
 
         <div className="footer">
