@@ -1,7 +1,6 @@
 import React, { useRef, useEffect, useCallback } from "react";
 import "../login/Login.css";
 import { useDataLayerValue } from "../../../DataLayer";
-import happifyBanner from "../../../Assets/happify-banner.jpg";
 import { Button } from "@material-ui/core";
 import { toPng } from 'html-to-image';
 import fontFile from '../../../fonts/InterTight-Bold.ttf';
@@ -23,7 +22,7 @@ function Happify() {
     artistString = 'COPYWRITE';
   }
 
-  const userString = user?.display_name?.split(' ')[0].toUpperCase() || 'LOADING';
+  let userString = user?.display_name?.split(' ')[0].toUpperCase() || 'LOADING';
 
   const generateShareableImage = useCallback(() => {
 
@@ -154,7 +153,9 @@ function Happify() {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
-      <img src={happifyBanner} alt="happify-banner" style={{ width: '17rem', height: '7rem' }} />
+      <p style={{ textAlign: 'center', fontFamily: "Inter Tight", fontWeight: "bold", fontSize: 48, marginBottom: '2rem' }}>
+        Happify
+      </p>
       <div className="happify">
         <div className="happify-banner">
           <div className="x" style={{ height: '54vh' }} ref={pngRef}>
@@ -188,14 +189,14 @@ function Happify() {
                 </textPath>
               </text>
               <path id="curve" d="M3 250 Q100 350 200 280" fill="transparent" />
-              <text letterSpacing=".5" fontSize={calculateFontSize(userString, false)} fill="#282725" fontFamily="Inter Tight" fontWeight="bold">
-                <textPath href="#curve" startOffset={calculateOffset(userString, false)}>
-                  FOR {userString}
+              <text letterSpacing=".5" fontSize='24' fill="#282725" fontFamily="Inter Tight" fontWeight="bold">
+                <textPath href="#curve" startOffset="28%">
+                  happify.club
                 </textPath>
               </text>
             </svg>
-            <p style={{ textAlign: 'center', fontFamily: "Inter Tight", fontWeight: "bold" }}>
-              happify.club
+            <p style={{ textAlign: 'center', fontFamily: "Inter Tight", fontWeight: "bold", marginTop: '2rem' }}>
+              FOR {userString}
             </p>
           </div>
         </div>
