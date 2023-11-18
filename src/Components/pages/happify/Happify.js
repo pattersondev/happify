@@ -22,6 +22,8 @@ function Happify() {
     artistString = 'COPYWRITE';
   }
 
+  artistString = 'tyler the creator'
+
   let userString = user?.display_name?.split(' ')[0].toUpperCase() || 'LOADING';
 
   const generateShareableImage = useCallback(() => {
@@ -147,7 +149,7 @@ function Happify() {
 
   useEffect(() => {
     const images = document.getElementsByTagName('img');
-    if (images.length >= 1 && images.length <= 2) updateText();
+    updateText();
   }, [artists]);
 
 
