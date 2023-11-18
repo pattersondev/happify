@@ -1,8 +1,7 @@
 import React, { useRef, useEffect, useCallback } from "react";
 import "../login/Login.css";
 import { useDataLayerValue } from "../../../DataLayer";
-import { toPng } from 'html-to-image';
-import fontFile from '../../../fonts/InterTight-Bold.ttf';
+import './Happify.css';
 
 function Happify() {
   // Styling for the spotify button
@@ -14,7 +13,7 @@ function Happify() {
 
   const monthString = new Date().toLocaleString('default', { month: 'long' }).toUpperCase() + ' TOP ARTIST';
 
-  const userString = user?.display_name?.split(' ')[0].toUpperCase() || 'LOADING';
+  const userString = user?.display_name?.split(' ')[0].toLowerCase() || 'LOADING';
 
   let artistString = artists?.items?.[0]?.name.toLowerCase() || 'LOADING';
 
@@ -38,6 +37,10 @@ function Happify() {
     // Update the font size
     textPath.setAttribute("font-size", fontSize);
 
+    const div = document.querySelector('.footer');
+    if (div) {
+      div.remove();
+    }
   };
 
   useEffect(() => {
@@ -47,11 +50,11 @@ function Happify() {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
-      <p style={{ textAlign: 'center', fontFamily: "Inter Tight", fontWeight: "bold", fontSize: 48, marginBottom: '2rem' }}>
-        Happify
-      </p>
       <div className="happify">
         <div className="happify-banner">
+          <p style={{ textAlign: 'center', fontFamily: "Inter Tight", fontWeight: "bold", fontSize: 54, marginBottom: '2rem' }}>
+            Happify
+          </p>
           <div className="x" style={{ height: '54vh' }} ref={pngRef}>
             <svg xmlns="http://www.w3.org/2000/svg" width="240" height="350" version="1.1" ref={svgRef}>
               <defs>
@@ -60,8 +63,8 @@ function Happify() {
                 </filter>
               </defs>
               <circle cx="120" cy="170" r="112" fill="#ffd64a" stroke="#282725" strokeWidth="4" filter="url(#shadow)" />
-              <ellipse cx="90" cy="134" rx="12" ry="30" fill="#282725" />
-              <ellipse cx="150" cy="134" rx="12" ry="30" fill="#282725" />
+              <ellipse cx="90" cy="125" rx="12" ry="35" fill="#282725" />
+              <ellipse cx="150" cy="125" rx="12" ry="35" fill="#282725" />
               <path id="smilePath" d="M36 192 Q120 280, 204 192" fill="none" />
               <text
                 id="text"
@@ -90,7 +93,7 @@ function Happify() {
               </text>
             </svg>
             <p style={{ textAlign: 'center', fontFamily: "Inter Tight", fontWeight: "bold", marginTop: '2rem' }}>
-              FOR {userString}
+              for {userString}
             </p>
           </div>
         </div>

@@ -8,9 +8,25 @@
 .happify {
   display: grid;
   place-items: center;
-  height: 100vh;
 }
 
 #svg-container {
   padding-top: 2rem;
+}
+
+.happify-banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+@media only screen and (max-width: 600px) {
+  .happify-banner {
+    border: 12px solid #282725;
+    outline: 28px solid #ffd64a;
+    box-sizing: border-box;
+    width: 44vh;
+    height: 80vh;
+  }
 }
