@@ -11,7 +11,7 @@ function Happify() {
   const svgRef = useRef(null); // Reference to the SVG element
   const textRef = useRef(null); // Reference to the textPath element
 
-  const monthString = new Date().toLocaleString('default', { month: 'long' }).toUpperCase() + ' TOP ARTIST';
+  const monthString = new Date().toLocaleString('default', { month: 'long' }) + ' Top Artist';
 
   const userString = user?.display_name?.split(' ')[0].toLowerCase() || 'LOADING';
 
@@ -56,16 +56,16 @@ function Happify() {
             Happify
           </p>
           <div className="x" style={{ height: '54vh' }} ref={pngRef}>
-            <svg xmlns="http://www.w3.org/2000/svg" width="240" height="350" version="1.1" ref={svgRef}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="300" height="350" version="1.1" ref={svgRef}>
               <defs>
                 <filter id="shadow">
                   <feDropShadow dx="0" dy="0" stdDeviation="4" />
                 </filter>
               </defs>
-              <circle cx="120" cy="170" r="112" fill="#ffd64a" stroke="#282725" strokeWidth="4" filter="url(#shadow)" />
-              <ellipse cx="90" cy="125" rx="12" ry="35" fill="#282725" />
-              <ellipse cx="150" cy="125" rx="12" ry="35" fill="#282725" />
-              <path id="smilePath" d="M36 192 Q120 280, 204 192" fill="none" />
+              <circle cx="150" cy="170" r="112" fill="#ffd64a" stroke="#282725" strokeWidth="4" filter="url(#shadow)" />
+              <ellipse cx="120" cy="125" rx="12" ry="35" fill="#282725" />
+              <ellipse cx="180" cy="125" rx="12" ry="35" fill="#282725" />
+              <path id="smilePath" d="M66 192 Q150 280, 234 192" fill="none" />
               <text
                 id="text"
                 fontSize="36"
@@ -79,15 +79,15 @@ function Happify() {
                   {artistString}
                 </textPath>
               </text>
-              <path id="monthCurve" d="M0 120 Q120 -30 250 135" fill="transparent" />
-              <text letterSpacing=".5" fontSize={20} fill="#282725" fontFamily="Inter Tight" fontWeight="bold">
-                <textPath href="#monthCurve" startOffset={20.6}>
+              <path id="monthCurve" d="M0 140 Q140 -60 300 140" fill="transparent" />
+              <text letterSpacing=".5" fontSize={30} fill="#282725" fontFamily="Inter Tight" fontWeight="bold">
+                <textPath href="#monthCurve" startOffset={38.6}>
                   {monthString || 'LOADING'}
                 </textPath>
               </text>
-              <path id="curve" d="M3 250 Q100 350 200 280" fill="transparent" />
+              <path id="curve" d="M3 250 Q150 360 250 270" fill="transparent" />
               <text letterSpacing=".5" fontSize='24' fill="#282725" fontFamily="Inter Tight" fontWeight="bold">
-                <textPath href="#curve" startOffset="28%">
+                <textPath href="#curve" startOffset="34%">
                   happify.club
                 </textPath>
               </text>
