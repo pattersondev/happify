@@ -53,7 +53,7 @@ function Happify() {
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
       <div className="happify">
         <div className="happify-banner">
-          <p style={{ textAlign: 'center', fontFamily: "Inter Tight", fontWeight: "bold", fontSize: 54, marginBottom: '2rem' }}>
+          <p style={{ textAlign: 'center', fontFamily: "Inter Tight", fontWeight: "bold", fontSize: 54, marginBottom: '2rem', textShadow: '1px 1px 2px rgba(0, 0, 0, 0.5)' }}>
             Happify
           </p>
           <div className="x" style={{ height: '54vh' }} ref={pngRef}>
