@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useCallback } from "react";
 import "../login/Login.css";
 import { useDataLayerValue } from "../../../DataLayer";
 import './Happify.css';
+import spotifyLogo from '../../../Assets/Spotify-Black-Logo.wine.svg';
 
 function Happify() {
   // Styling for the spotify button
@@ -92,9 +93,12 @@ function Happify() {
                 </textPath>
               </text>
             </svg>
-            <p style={{ textAlign: 'center', fontFamily: "Inter Tight", fontWeight: "bold", marginTop: '2rem' }}>
+            <p style={{ textAlign: 'center', fontFamily: "Inter Tight", fontWeight: "bold", marginTop: '1rem', fontSize: '1.5rem' }}>
               for {userString}
             </p>
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+              <img src={spotifyLogo} alt="Spotify Logo" height='100px' width='100px' />
+            </div>
           </div>
         </div>
       </div>
