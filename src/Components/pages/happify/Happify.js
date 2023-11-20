@@ -81,8 +81,8 @@ function Happify() {
                 </textPath>
               </text>
               <path id="monthCurve" d="M0 140 Q140 -60 300 140" fill="transparent" />
-              <text letterSpacing=".5" fontSize={30} fill="#282725" fontFamily="Inter Tight" fontWeight="bold">
-                <textPath href="#monthCurve" startOffset={38.6}>
+              <text letterSpacing="-.5" fontSize={30} fill="#282725" fontFamily="Inter Tight" fontWeight="bold">
+                <textPath href="#monthCurve" startOffset={46.6}>
                   {monthString || 'LOADING'}
                 </textPath>
               </text>
@@ -93,7 +93,7 @@ function Happify() {
                 </textPath>
               </text>
             </svg>
-            <p style={{ textAlign: 'center', fontFamily: "Inter Tight", fontWeight: "bold", marginTop: '1rem', fontSize: '1.5rem' }}>
+            <p style={{ textAlign: 'center', fontFamily: "Inter Tight", fontWeight: "bold", fontSize: '1.5rem' }}>
               for {userString}
             </p>
             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
