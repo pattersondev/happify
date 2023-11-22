@@ -2,7 +2,7 @@
 .navbar {
     display: flex;
     justify-content: space-between;
-    background-color: #333;
+    background-color: #191818;
     padding: 10px;
   }
   
@@ -23,6 +23,8 @@
     color: white;
     text-decoration: none;
     padding: 0 10px;
+    opacity: 1; /* Start with 0 opacity */
+    animation: fadeIn 2s ease forwards; /* Apply fade-in animation */
   }
   
   .nav-links a:hover {
@@ -44,7 +46,7 @@
       width: 100%;
       text-align: center;
       position: absolute;
-      top: 60px; /* Adjust this value based on your navbar height */
+      top: 60px;
       background-color: #333;
     }
   
@@ -55,6 +57,13 @@
     .nav-links a {
       padding: 10px;
       border-bottom: 1px solid #555;
+    }
+  
+    /* Fade-in animation keyframes */
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
     }
   }
   
