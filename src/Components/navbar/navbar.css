@@ -1,0 +1,11 @@
+.navbar {
+    display: flex;
+  }
+  
+  .nav-link {
+    margin-right: 2rem;  /* Adjust the spacing as needed */
+    text-decoration: none;  /* Remove the underline */
+    color: black;  /* Set the color of the text as needed */
+    font-size: 2rem;  /* Adjust the font size as needed */
+  }
+  
