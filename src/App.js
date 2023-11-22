@@ -56,17 +56,17 @@ function App() {
             </Link>
           </li>
           <li>
-            <Link to="/About" style={{ textDecoration: 'none', color: 'black' }}>
+            <Link to="/about" style={{ textDecoration: 'none', color: 'black' }}>
               <h2 className="about">about</h2>
             </Link>
           </li>
           <li>
-            <Link to="/Privacy" style={{ textDecoration: 'none', color: 'black' }}>
+            <Link to="/privacy" style={{ textDecoration: 'none', color: 'black' }}>
               <h2 className="privacy">privacy</h2>
             </Link>
           </li>
           <li>
-            <Link to="/Contact" style={{ textDecoration: 'none', color: 'black' }}>
+            <Link to="/contact" style={{ textDecoration: 'none', color: 'black' }}>
               <h2 className="contact">contact</h2>
             </Link>
           </li>
