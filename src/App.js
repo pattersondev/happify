@@ -48,7 +48,7 @@ function App() {
   }, [dispatch]);
   return (
     <Router>
-      <div className="App">
+      <div className="App" style={{ backgroundColor: "white" }}>
         <nav className="header-container">
           <li>
             <Link to="/" style={{ textDecoration: 'none', color: 'black' }}>
@@ -73,9 +73,9 @@ function App() {
         </nav>
         <Routes>
           <Route path='' element={< Home />}></Route>
-          <Route path='/About' element={< About />}></Route>
-          <Route path='/Privacy' element={< Privacy />}></Route>
-          <Route path='/Contact' element={< Contact />}></Route>
+          <Route path='/about' element={< About />}></Route>
+          <Route path='/privacy' element={< Privacy />}></Route>
+          <Route path='/contact' element={< Contact />}></Route>
           <Route path="/spotify/callback" element={<Happify />}></Route>
         </Routes>
 

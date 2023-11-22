@@ -14,7 +14,7 @@ function Happify() {
 
   const monthString = new Date().toLocaleString('default', { month: 'long' }) + ' Top Artist';
 
-  const userString = user?.display_name?.split(' ')[0].toLowerCase() || 'LOADING';
+  const userString = user?.display_name.toLowerCase() || 'loading';
 
   let artistString = artists?.items?.[0]?.name.toLowerCase() || 'LOADING';
 
