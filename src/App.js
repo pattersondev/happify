@@ -10,7 +10,6 @@ import SpotifyWebApi from "spotify-web-api-js";
 import { useDataLayerValue } from "./DataLayer";
 import Happify from "./Components/pages/happify/Happify";
 import NavBar from "./Components/navbar/navbar";
-//import NavbarComponent from  "./Components/navbar/NavBarComponent"; 
 
 const spotify = new SpotifyWebApi();
 
@@ -52,9 +51,7 @@ function App() {
 <Router>
       <div className="App">
         <NavBar />
-        <NavbarComponent> 
-         </NavbarComponent>
-
+    
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path='/about' element={<About />} />
