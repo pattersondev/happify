@@ -1,6 +1,7 @@
 navbar {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     background-color: #ffff;
     padding: 10px;
 }
@@ -43,11 +44,10 @@ navbar {
 
     .nav-links {
         display: none;
-        flex-direction: column;
+        flex-direction: row;
         width: 100%;
 
         position: absolute;
-        top: 2rem;
 
         opacity: 1;
     }

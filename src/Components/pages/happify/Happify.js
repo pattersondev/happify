@@ -40,7 +40,7 @@ function Happify() {
 
     const div = document.querySelector('.footer');
     if (div) {
-      div.remove();
+      //div.remove();
     }
   };
 
