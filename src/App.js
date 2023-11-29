@@ -9,7 +9,7 @@ import { getResponseToken } from "./spotify";
 import SpotifyWebApi from "spotify-web-api-js";
 import { useDataLayerValue } from "./DataLayer";
 import Happify from "./Components/pages/happify/Happify";
-import NavBar from "./Components/navbar/navbar";
+import NavBar from "./Components/navbar/Navbar";
 
 const spotify = new SpotifyWebApi();
 
@@ -48,10 +48,10 @@ function App() {
     }
   }, [dispatch]);
   return (
-<Router>
+    <Router>
       <div className="App">
         <NavBar />
-    
+
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path='/about' element={<About />} />
