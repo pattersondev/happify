@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Privacy from "./Components/pages/privacy/Privacy";
 import About from "./Components/pages/about/About";
 import Contact from "./Components/pages/contact/Contact";
@@ -12,6 +12,22 @@ import Happify from "./Components/pages/happify/Happify";
 import NavBar from "./Components/navbar/Navbar";
 
 const spotify = new SpotifyWebApi();
+
+
+function Footer() {
+  const location = useLocation();
+
+  if (location.pathname === '/#') {
+    return null;
+  }
+
+  return (
+    <div className="footer">
+      <a href="https://www.linkedin.com/in/pattersonrsam/" style={{ color: "black" }} target='_blank'> created by sam patterson</a>
+      <a href="https://www.linkedin.com/in/jackmoorecameron/" style={{ color: "black" }} target='_blank'> and jack cameron</a>
+    </div>
+  );
+}
 
 function App() {
 
@@ -60,10 +76,7 @@ function App() {
           <Route path="/spotify/callback" element={<Happify />} />
         </Routes>
 
-        <div className="footer">
-          <a href="https://www.linkedin.com/in/pattersonrsam/" style={{ color: "black" }} target='_blank'> created by sam patterson</a>
-          <a href="https://www.linkedin.com/in/jackmoorecameron/" style={{ color: "black" }} target='_blank'> and jack cameron</a>
-        </div>
+        <Footer />
       </div>
     </Router>
   );

@@ -1,22 +1,8 @@
-navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #ffff;
-    padding: 10px;
-}
-
-.menu-toggle {
-    display: none;
-    font-size: 20px;
-    cursor: pointer;
-    color: black;
-    background: none;
-    border: none;
-}
-
 .nav-links {
     display: flex;
+    width: 100%;
+    flex-direction: row;
+    font-size: 1.5rem;
 }
 
 .nav-links a {
@@ -38,18 +24,14 @@ navbar {
 }
 
 @media (max-width: 600px) {
-    .menu-toggle {
-        display: block;
-    }
-
     .nav-links {
-        display: none;
+        display: flex;
         flex-direction: row;
         width: 100%;
-
+        justify-content: space-between;
         position: absolute;
-
         opacity: 1;
+        font-size: 1rem;
     }
 
     .nav-links.open {
@@ -59,12 +41,5 @@ navbar {
     .nav-links a {
         padding: 10px;
 
-    }
-
-    /* Fade-in animation keyframes */
-    @keyframes fadeIn {
-        to {
-            opacity: 1;
-        }
     }
 }
