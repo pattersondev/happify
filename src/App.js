@@ -9,7 +9,7 @@ import { getResponseToken } from "./spotify";
 import SpotifyWebApi from "spotify-web-api-js";
 import { useDataLayerValue } from "./DataLayer";
 import Happify from "./Components/pages/happify/Happify";
-import NavBar from "./Components/navbar/NavBar";
+import NavBar from "./Components/navbar/Navbar";
 
 const spotify = new SpotifyWebApi();
 
