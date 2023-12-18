@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useCallback } from "react";
+import React, { useRef, useEffect } from "react";
 import "../login/Login.css";
 import { useDataLayerValue } from "../../../DataLayer";
 import './Happify.css';
@@ -37,11 +37,6 @@ function Happify() {
 
     // Update the font size
     textPath.setAttribute("font-size", fontSize);
-
-    const div = document.querySelector('.footer');
-    if (div) {
-      //div.remove();
-    }
   };
 
   useEffect(() => {

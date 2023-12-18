@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Privacy from "./Components/pages/privacy/Privacy";
 import About from "./Components/pages/about/About";
 import Contact from "./Components/pages/contact/Contact";
@@ -12,14 +12,17 @@ import Happify from "./Components/pages/happify/Happify";
 import NavBar from "./Components/navbar/Navbar";
 
 const spotify = new SpotifyWebApi();
+let isHappify = false;
 
 
 function Footer() {
-  const location = useLocation();
 
-  if (location.pathname === '/#') {
-    return null;
-  }
+  useEffect(() => {
+    const happifyComponent = document.getElementsByClassName('happify');
+    if (happifyComponent) {
+      isHappify = true;
+    }
+  }, []);
 
   return (
     <div className="footer">
@@ -76,7 +79,7 @@ function App() {
           <Route path="/spotify/callback" element={<Happify />} />
         </Routes>
 
-        <Footer />
+        {!isHappify && <Footer />}
       </div>
     </Router>
   );
